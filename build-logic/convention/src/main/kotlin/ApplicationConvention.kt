@@ -10,7 +10,7 @@ class ApplicationConvention : Plugin<Project> {
             applyPlugins()
             applicationGradle {
                 kotlinAndroidGradleExtension(this)
-                defaultConfig.targetSdk = 34
+                defaultConfig.targetSdk = 35
             }
         }
     }

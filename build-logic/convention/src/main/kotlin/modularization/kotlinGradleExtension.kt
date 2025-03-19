@@ -15,9 +15,9 @@ internal fun Project.kotlinAndroidGradleExtension(
     commonExtension: CommonExtension<*, *, *, *, *, *>
 ) {
     commonExtension.apply {
-        compileSdk = 34
+        compileSdk = 35
         defaultConfig {
-            minSdk = 21
+            minSdk = 24
             version = 1
         }
 

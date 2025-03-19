@@ -24,5 +24,11 @@ android {
 }
 
 dependencies {
-
+    implementation(project(":data"))
+    implementation(project(":domain"))
+    implementation(project(":core:ui"))
+    implementation(project(":core:database"))
+    implementation(project(":core:network"))
+    implementation(project(":core:secure-shared-pref"))
+    implementation(project(":core:utils"))
 }
