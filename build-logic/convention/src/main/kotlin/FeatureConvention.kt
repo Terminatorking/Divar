@@ -2,7 +2,6 @@ import modularization.libraryGradle
 import modularization.libs
 import org.gradle.api.Plugin
 import org.gradle.api.Project
-import org.gradle.kotlin.dsl.apply
 import org.gradle.kotlin.dsl.dependencies
 
 class FeatureConvention : Plugin<Project> {
@@ -21,7 +20,7 @@ class FeatureConvention : Plugin<Project> {
 
     private fun Project.applyPlugins() {
         pluginManager.apply {
-            apply (libs.findLibrary("compose.compiler").get())
+            apply(libs.findPlugin("compose.compiler").get().get().pluginId)
             apply("convention.android.library")
             apply("convention.android.library.compose")
             apply("convention.android.hilt")
@@ -32,7 +31,8 @@ class FeatureConvention : Plugin<Project> {
 
     private fun Project.applyDependencies() {
         dependencies {
-            // TODO: After adding modules, update this section to include [list the specific modules needed here]
+            add("implementation", project(":core:utils"))
+            add("implementation", project(":core:ui"))
         }
     }
 }
