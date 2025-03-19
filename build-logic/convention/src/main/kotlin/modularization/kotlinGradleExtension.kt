@@ -50,7 +50,9 @@ internal fun Project.kotlinAndroidGradleExtension(
 /**
  * Configure base Kotlin options
  */
-private inline fun <reified T : KotlinTopLevelExtension> Project.configureKotlin() = configure<T> {
+private inline fun
+        <reified T : KotlinTopLevelExtension>
+        Project.configureKotlin() = configure<T> {
     when (this) {
         is KotlinAndroidProjectExtension -> compilerOptions
         is KotlinJvmProjectExtension -> compilerOptions

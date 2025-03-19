@@ -4,6 +4,7 @@ import org.gradle.api.Plugin
 import org.gradle.api.Project
 
 class LibraryComposeConvention : Plugin<Project> {
+
     override fun apply(target: Project) {
         target.run {
             applyPlugins()
@@ -18,5 +19,4 @@ class LibraryComposeConvention : Plugin<Project> {
             apply("com.android.library")
         }
     }
-
 }

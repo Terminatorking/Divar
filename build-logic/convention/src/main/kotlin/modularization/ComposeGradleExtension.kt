@@ -8,6 +8,7 @@ internal fun Project.composeGradleExtension(
     commonExtension: CommonExtension<*, *, *, *, *, *>,
 ) {
     commonExtension.apply {
+
         buildFeatures {
             compose = true
         }
@@ -31,7 +32,5 @@ internal fun Project.composeGradleExtension(
             add("debugImplementation", libs.findLibrary("androidx.ui.tooling.preview").get())
             add("debugImplementation", libs.findLibrary("androidx.ui.test.manifest").get())
         }
-
     }
-
 }

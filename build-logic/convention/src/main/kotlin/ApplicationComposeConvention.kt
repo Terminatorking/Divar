@@ -5,6 +5,7 @@ import org.gradle.api.Project
 import org.gradle.kotlin.dsl.apply
 
 class ApplicationComposeConvention : Plugin<Project> {
+
     override fun apply(target: Project) {
         target.run {
             applyPlugins()
@@ -20,5 +21,4 @@ class ApplicationComposeConvention : Plugin<Project> {
             apply(plugin = "org.jetbrains.kotlin.plugin.compose")
         }
     }
-
 }
