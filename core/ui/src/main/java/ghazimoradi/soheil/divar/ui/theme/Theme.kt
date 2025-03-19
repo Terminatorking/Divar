@@ -28,25 +28,25 @@ object AppTheme {
 }
 
 private val DarkColorScheme = AppColor(
-    primaryColor = PrimaryColorDark,
-    itemColor = ItemColorDark,
-    iconColor = IconColorDark,
+    primaryColor = ButtonBlue,
+    itemColor = EerieBlackDark,
+    iconColor = BrightGray,
     textColor = TextColorDark,
-    hintColor = HintColorDark,
+    hintColor = SilverChalice,
     titleColor = TitleColorDark,
-    backgroundColor = BackgroundColorDark,
+    backgroundColor = VampireBlack,
     errorColor = ErrorColorDark,
     disableColor = DisableColorDark,
     successColor = SuccessColorDark
 )
 
 private val LightColorScheme = AppColor(
-    primaryColor = PrimaryColorLight,
-    itemColor = ItemColorLight,
-    iconColor = IconColorLight,
-    textColor = TextColorLight,
-    hintColor = HintColorLight,
-    titleColor = TitleColorLight,
+    primaryColor = DenimBlue,
+    itemColor = AliceBlue,
+    iconColor = SmokyBlack,
+    textColor = EerieBlack,
+    hintColor = GraniteGray,
+    titleColor = RaisinBlack,
     backgroundColor = BackgroundColorLight,
     errorColor = ErrorColorLight,
     disableColor = DisableColorLight,
