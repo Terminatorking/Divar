@@ -75,7 +75,7 @@ object NetWorkModule {
     @Singleton
     fun provideRetrofit(client: OkHttpClient, json: Json): Retrofit {
         return Retrofit.Builder().client(client)
-            .baseUrl("")
+            .baseUrl("http://localhost:8080/api/")
             .addConverterFactory(
                 json.asConverterFactory(
                     contentType = "application/json".toMediaType()
