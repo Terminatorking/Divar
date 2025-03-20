@@ -7,6 +7,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import ghazimoradi.soheil.divar.network.BuildConfig
+import ghazimoradi.soheil.divar.network.preferences.TokenPreferences
 import kotlinx.serialization.json.Json
 import okhttp3.Interceptor
 import okhttp3.MediaType.Companion.toMediaType
@@ -31,7 +32,7 @@ object NetWorkModule {
 
     @Provides
     @Singleton
-    fun provideOkHttpClient(): OkHttpClient {
+    fun provideOkHttpClient(tokenPreferences: TokenPreferences): OkHttpClient {
 
         val http = OkHttpClient.Builder()
             .connectTimeout(15, TimeUnit.SECONDS)
@@ -46,7 +47,7 @@ object NetWorkModule {
                     name = "Content-Type",
                     value = "application/json",
                 ).header(
-                    name = "Authorization", value = ""
+                    name = "Authorization", value = tokenPreferences.readToken()
                 ).method(
                     method = original.method, body = original.body
                 ).build()
