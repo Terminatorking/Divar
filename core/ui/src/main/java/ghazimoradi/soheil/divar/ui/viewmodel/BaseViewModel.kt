@@ -36,4 +36,7 @@ abstract class BaseViewModel<State : UiSate, Event : UiEvent> : ViewModel() {
         _uiState.value = newState
     }
 
+    @Stable
+    abstract fun onTriggerEvent(event: Event)
+
 }
