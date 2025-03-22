@@ -1,6 +1,7 @@
 plugins {
     id("convention.android.application")
     id("convention.android.application.compose")
+    id("convention.android.hilt")
 }
 
 android {
@@ -25,6 +26,7 @@ android {
 
 dependencies {
     implementation(project(":data"))
+    implementation(project(":feature:category"))
     implementation(project(":domain"))
     implementation(project(":core:ui"))
     implementation(project(":core:database"))

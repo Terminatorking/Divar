@@ -74,13 +74,13 @@ object NetWorkModule {
     @Provides
     @Singleton
     fun provideRetrofit(client: OkHttpClient, json: Json): Retrofit {
-        return Retrofit.Builder().client(client)
-            .baseUrl("http://localhost:8080/api/")
+        return Retrofit.Builder()
+            .client(client)
+            .baseUrl("http://10.0.2.2:8080/api/v1/")
             .addConverterFactory(
                 json.asConverterFactory(
                     contentType = "application/json".toMediaType()
                 )
-            )
-            .build()
+            ).build()
     }
 }

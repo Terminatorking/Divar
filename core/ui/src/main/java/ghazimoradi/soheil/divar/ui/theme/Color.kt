@@ -9,7 +9,7 @@ val SonicSilver = Color(0xFF767776)
 
 /* ---------------- Light Colors -----------------*/
 val DenimBlue = Color(0xFF1f41bb) //PrimaryColorLight
-val AliceBlue = Color(0xFFf1f4ff) //ItemColorLight
+val AliceBlue = Color(0xFFfafafa) //ItemColorLight
 val SmokyBlack = Color(0xFF0F0F0F) //IconColorLight
 val EerieBlack = Color(0xFF18151F) //TextColorLight
 val GraniteGray = Color(0xFF636363) //HintColorLight

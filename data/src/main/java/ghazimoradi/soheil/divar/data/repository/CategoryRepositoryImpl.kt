@@ -17,8 +17,9 @@ class CategoryRepositoryImpl @Inject constructor(
 ) : CategoryRepository {
 
     override suspend fun getCategories(): Flow<DataResult<List<Category>>> = flow {
-        safeCall { apiService.getCategories() }
-            .onSuccess { categoryResponseList ->
+        safeCall {
+            apiService.getCategories()
+        }.onSuccess { categoryResponseList ->
                 emit(
                     DataResult.Success(
                         data = categoryResponseList.map { categoryResponse ->
