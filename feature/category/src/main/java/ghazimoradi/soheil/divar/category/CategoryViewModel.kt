@@ -9,6 +9,7 @@ import ghazimoradi.soheil.divar.domain.model.onFailure
 import ghazimoradi.soheil.divar.domain.model.onSuccess
 import ghazimoradi.soheil.divar.domain.usecases.GetCategoriesUseCase
 import ghazimoradi.soheil.divar.ui.extension.eLog
+import ghazimoradi.soheil.divar.ui.model.UIMessage
 import ghazimoradi.soheil.divar.ui.viewmodel.BaseViewModel
 import kotlinx.collections.immutable.toImmutableList
 import kotlinx.coroutines.launch
@@ -90,6 +91,7 @@ class CategoryViewModel @Inject constructor(
                     setState {
                         copy(isRefreshing = false)
                     }
+                    setUiMessage(UIMessage(stringValue = "مشکلی پیش امده اینترنت خود را چک کنید اگر اینترنت متصل بود ایراد سرور است صبور باشید"))
                     apiError.eLog(tag = "serverError")
                 }
             }

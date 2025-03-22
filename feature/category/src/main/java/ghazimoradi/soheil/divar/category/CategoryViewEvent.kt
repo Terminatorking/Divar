@@ -1,7 +1,6 @@
 package ghazimoradi.soheil.divar.category
 
 import androidx.compose.runtime.Stable
-import ghazimoradi.soheil.divar.domain.fake_data.FakeData
 import ghazimoradi.soheil.divar.domain.model.Category
 import ghazimoradi.soheil.divar.ui.extension.immutableListOf
 import ghazimoradi.soheil.divar.ui.viewmodel.UiEvent
@@ -15,7 +14,7 @@ data class CategoryUiState(
     val isLoadMore: Boolean = false,
     val categories: ImmutableList<Category>? = immutableListOf(),
     val selectedCategories: ImmutableList<Category> = immutableListOf(),
-    val showCategories: ImmutableList<Category>? = FakeData.provideCategories(),
+    val showCategories: ImmutableList<Category>? = immutableListOf(),
     val categoryTitle: String? = null,
     val selectedCategory: Category? = null
 ) : UiSate

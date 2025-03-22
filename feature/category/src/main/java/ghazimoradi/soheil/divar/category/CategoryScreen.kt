@@ -4,10 +4,8 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -19,7 +17,6 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.PreviewLightDark
@@ -31,6 +28,7 @@ import ghazimoradi.soheil.divar.domain.model.Category
 import ghazimoradi.soheil.divar.ui.R
 import ghazimoradi.soheil.divar.ui.core.list.SwipeList
 import ghazimoradi.soheil.divar.ui.core.texts.TitleMediumText
+import ghazimoradi.soheil.divar.ui.core.ui_message.UiMessageScreen
 import ghazimoradi.soheil.divar.ui.extension.CreateSpace
 import ghazimoradi.soheil.divar.ui.extension.baseModifier
 import ghazimoradi.soheil.divar.ui.extension.eLog
@@ -51,6 +49,8 @@ fun CategoryScreen(
             viewModel.onTriggerEvent(categoryUiEvent)
         }
     )
+
+    UiMessageScreen(shared = viewModel.uiMessage)
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
