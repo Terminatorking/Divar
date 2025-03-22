@@ -29,28 +29,28 @@ object AppTheme {
 
 private val DarkColorScheme = AppColor(
     primaryColor = ButtonBlue,
-    itemColor = EerieBlackDark,
+    itemColor = DarkCharcoal,
     iconColor = BrightGray,
-    textColor = TextColorDark,
+    textColor = White,
     hintColor = SilverChalice,
-    titleColor = TitleColorDark,
-    backgroundColor = VampireBlack,
-    errorColor = ErrorColorDark,
-    disableColor = DisableColorDark,
-    successColor = SuccessColorDark
+    titleColor = White,
+    backgroundColor = RaisinBlack,
+    errorColor = Razzmatazz,
+    disableColor = SonicSilver,
+    successColor = Apple
 )
 
 private val LightColorScheme = AppColor(
     primaryColor = DenimBlue,
-    itemColor = AliceBlue,
-    iconColor = SmokyBlack,
+    itemColor = Lotion,
+    iconColor = EerieBlack,
     textColor = EerieBlack,
     hintColor = GraniteGray,
     titleColor = RaisinBlack,
-    backgroundColor = BackgroundColorLight,
-    errorColor = ErrorColorLight,
-    disableColor = DisableColorLight,
-    successColor = SuccessColorLight
+    backgroundColor = White,
+    errorColor = Razzmatazz,
+    disableColor = SonicSilver,
+    successColor = Apple
 )
 
 @Composable

@@ -31,8 +31,6 @@ import ghazimoradi.soheil.divar.ui.R
 import ghazimoradi.soheil.divar.ui.core.list.SwipeList
 import ghazimoradi.soheil.divar.ui.core.texts.TitleMediumText
 import ghazimoradi.soheil.divar.ui.extension.CreateSpace
-import ghazimoradi.soheil.divar.ui.extension.baseModifier
-import ghazimoradi.soheil.divar.ui.extension.dLog
 import ghazimoradi.soheil.divar.ui.theme.AppTheme
 import kotlinx.collections.immutable.ImmutableList
 
@@ -65,10 +63,8 @@ fun CategoryScreenContent(
         Scaffold(
             modifier = Modifier.fillMaxSize(),
         ) { innerPadding ->
-            innerPadding.dLog()
-            Column(
-                modifier = Modifier.baseModifier(padding = 0.dp)
-            ) {
+            Column {
+                innerPadding.calculateTopPadding().CreateSpace()
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
@@ -79,7 +75,6 @@ fun CategoryScreenContent(
                     horizontalArrangement = Arrangement.spacedBy(8.dp, Alignment.End)
                 ) {
                     TitleMediumText(
-
                         text = if (categoryTitle.isNullOrEmpty())
                             stringResource(R.string.ads_category) else categoryTitle
                     )
