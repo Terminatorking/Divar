@@ -7,7 +7,7 @@ import coil.request.ImageRequest
 import coil.size.Size
 import coil.transform.CircleCropTransformation
 import coil.transform.RoundedCornersTransformation
-import ghazimoradi.soheil.divar.ui.extension.dLog
+import ghazimoradi.soheil.divar.ui.extension.eLog
 import ghazimoradi.soheil.divar.ui.extension.toComposePx
 import coil.decode.SvgDecoder
 import coil.request.CachePolicy
@@ -19,7 +19,7 @@ fun coilCircle(data: Any): ImageRequest {
         .listener(
             onError = { _, throwable ->
                 // Log or handle the error
-                throwable.throwable.message.dLog(tag = "coilError")
+                throwable.throwable.message.eLog(tag = "coilError")
             }
         )
         .crossfade(true)
@@ -36,7 +36,7 @@ fun coilRounded(data: Any, radiusInDp: Float): ImageRequest {
         .listener(
             onError = { _, throwable ->
                 // Log or handle the error
-                throwable.throwable.message.dLog(tag = "coilError")
+                throwable.throwable.message.eLog(tag = "coilError")
             }
         )
         .transformations(
@@ -59,7 +59,7 @@ fun coilRounded(
         .listener(
             onError = { _, throwable ->
                 // Log or handle the error
-                throwable.throwable.message.dLog(tag = "coilError")
+                throwable.throwable.message.eLog(tag = "coilError")
             }
         )
         .size(Size.ORIGINAL)
@@ -83,7 +83,7 @@ fun defaultCoil(
         .memoryCachePolicy(CachePolicy.ENABLED)
         .listener(
             onError = { _, result ->
-                result.throwable.message.dLog("coilError")
+                result.throwable.message.eLog("coilError")
             },
         )
         .size(Size.ORIGINAL)
@@ -99,7 +99,7 @@ fun svgCoil(
         .data(data).memoryCachePolicy(CachePolicy.ENABLED)
         .listener(
             onError = { _, result ->
-                result.throwable.message.dLog("coilError")
+                result.throwable.message.eLog("coilError")
             },
         ).decoderFactory(SvgDecoder.Factory())
         .size(Size.ORIGINAL)

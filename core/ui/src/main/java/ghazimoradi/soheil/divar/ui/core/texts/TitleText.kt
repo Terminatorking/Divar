@@ -12,11 +12,11 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.withStyle
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.tooling.preview.PreviewLightDark
 import ghazimoradi.soheil.divar.ui.theme.AppTheme
 import kotlinx.collections.immutable.ImmutableList
 
-@Preview
+@PreviewLightDark
 @Composable
 private fun Prev() {
     AppTheme {

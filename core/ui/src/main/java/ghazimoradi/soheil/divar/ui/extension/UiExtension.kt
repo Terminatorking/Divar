@@ -9,12 +9,11 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.imePadding
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.safeContentPadding
-import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -83,7 +82,8 @@ fun Modifier.baseModifier(padding: Dp = 16.dp): Modifier = composed {
         .fillMaxSize()
         .imePadding()
         .background(AppTheme.colors.backgroundColor)
-        .safeContentPadding()
+        .statusBarsPadding()
+        .navigationBarsPadding()
         .padding(padding)
 }
 
@@ -134,8 +134,8 @@ fun String?.relativeTime(): String {
     }
 }
 
-fun Any?.dLog(tag: String = "MyLog", plusTag: String = "") {
-    Log.d("$tag $plusTag", this.toString())
+fun Any?.eLog(tag: String = "MyLog", plusTag: String = "") {
+    Log.e("$tag $plusTag", this.toString())
 }
 
 fun Modifier.dashedBorder(strokeWidth: Dp, color: Color, cornerRadiusDp: Dp) = composed(

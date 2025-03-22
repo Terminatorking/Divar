@@ -19,6 +19,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.PreviewLightDark
@@ -31,6 +32,8 @@ import ghazimoradi.soheil.divar.ui.R
 import ghazimoradi.soheil.divar.ui.core.list.SwipeList
 import ghazimoradi.soheil.divar.ui.core.texts.TitleMediumText
 import ghazimoradi.soheil.divar.ui.extension.CreateSpace
+import ghazimoradi.soheil.divar.ui.extension.baseModifier
+import ghazimoradi.soheil.divar.ui.extension.eLog
 import ghazimoradi.soheil.divar.ui.theme.AppTheme
 import kotlinx.collections.immutable.ImmutableList
 
@@ -61,10 +64,13 @@ fun CategoryScreenContent(
 ) {
     AppTheme {
         Scaffold(
-            modifier = Modifier.fillMaxSize(),
+            modifier = Modifier.baseModifier(padding = 0.dp),
         ) { innerPadding ->
-            Column {
-                innerPadding.calculateTopPadding().CreateSpace()
+            innerPadding.eLog()
+            Column(modifier = Modifier
+                .fillMaxSize()
+                .background(AppTheme.colors.itemColor)
+            ) {
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
@@ -90,11 +96,6 @@ fun CategoryScreenContent(
                         )
                     }
                 }
-                Spacer(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(25.dp),
-                )
                 SwipeList(
                     listSize = list?.size,
                     modifier = Modifier
