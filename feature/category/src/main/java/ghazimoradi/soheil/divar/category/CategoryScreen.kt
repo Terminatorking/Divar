@@ -13,6 +13,7 @@ import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -30,6 +31,7 @@ import ghazimoradi.soheil.divar.ui.core.list.SwipeList
 import ghazimoradi.soheil.divar.ui.core.texts.TitleMediumText
 import ghazimoradi.soheil.divar.ui.core.ui_message.UiMessageScreen
 import ghazimoradi.soheil.divar.ui.extension.CreateSpace
+import ghazimoradi.soheil.divar.ui.extension.animateClickable
 import ghazimoradi.soheil.divar.ui.extension.baseModifier
 import ghazimoradi.soheil.divar.ui.extension.eLog
 import ghazimoradi.soheil.divar.ui.theme.AppTheme
@@ -37,9 +39,16 @@ import kotlinx.collections.immutable.ImmutableList
 
 @Composable
 fun CategoryScreen(
-    viewModel: CategoryViewModel = hiltViewModel()
+    viewModel: CategoryViewModel = hiltViewModel(),
+    onCategory: (Category) -> Unit
 ) {
     val uiState = viewModel.uiState.collectAsState().value
+    LaunchedEffect(key1 = uiState.selectedCategory) {
+        if (uiState.selectedCategory != null) {
+            onCategory(uiState.selectedCategory)
+            viewModel.onTriggerEvent(CategoryUiEvent.OnClearSelectedCategory)
+        }
+    }
     CategoryScreenContent(
         categoryTitle = uiState.categoryTitle,
         list = uiState.showCategories,
@@ -67,9 +76,10 @@ fun CategoryScreenContent(
             modifier = Modifier.baseModifier(padding = 0.dp),
         ) { innerPadding ->
             innerPadding.eLog()
-            Column(modifier = Modifier
-                .fillMaxSize()
-                .background(AppTheme.colors.itemColor)
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(AppTheme.colors.itemColor)
             ) {
                 Row(
                     modifier = Modifier
@@ -89,6 +99,9 @@ fun CategoryScreenContent(
                         8.CreateSpace()
                         Icon(
                             modifier = Modifier
+                                .animateClickable {
+                                    onAction(CategoryUiEvent.OnBackInCategoryDialog)
+                                }
                                 .size(18.dp),
                             tint = AppTheme.colors.iconColor,
                             painter = painterResource(R.drawable.ic_arrow_right),

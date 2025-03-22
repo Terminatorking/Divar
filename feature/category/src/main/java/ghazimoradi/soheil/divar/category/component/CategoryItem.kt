@@ -18,6 +18,7 @@ import ghazimoradi.soheil.divar.domain.fake_data.FakeData
 import ghazimoradi.soheil.divar.domain.model.Category
 import ghazimoradi.soheil.divar.ui.R
 import ghazimoradi.soheil.divar.ui.core.texts.BodyMediumText
+import ghazimoradi.soheil.divar.ui.extension.animateClickable
 import ghazimoradi.soheil.divar.ui.theme.AppTheme
 import ghazimoradi.soheil.divar.ui.utils.*
 
@@ -28,7 +29,7 @@ fun CategoryItem(
     onClick: (() -> Unit)? = null
 ) {
     Row(
-        modifier = modifier.clickable {
+        modifier = modifier.animateClickable {
             onClick?.invoke()
         },
         verticalAlignment = Alignment.Top,

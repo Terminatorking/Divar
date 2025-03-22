@@ -35,7 +35,11 @@ class MainActivity : ComponentActivity() {
             }
 
             AppTheme {
-                CategoryScreen()
+                CategoryScreen(
+                    onCategory = {
+
+                    },
+                )
             }
         }
     }
