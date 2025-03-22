@@ -31,7 +31,7 @@ fun CategoryItem(
         modifier = modifier.clickable {
             onClick?.invoke()
         },
-        verticalAlignment = Alignment.CenterVertically,
+        verticalAlignment = Alignment.Top,
         horizontalArrangement = Arrangement.spacedBy(8.dp, alignment = Alignment.End)
     ) {
         if (category.children.isNotEmpty()) {
@@ -53,7 +53,7 @@ fun CategoryItem(
             it.isNotBlank()
         }?.let { icon ->
             AsyncImage(
-                modifier = Modifier.size(16.dp),
+                modifier = Modifier.size(20.dp),
                 model = svgCoil(icon),
                 contentDescription = "category icon",
                 colorFilter = ColorFilter.tint(color = AppTheme.colors.iconColor)

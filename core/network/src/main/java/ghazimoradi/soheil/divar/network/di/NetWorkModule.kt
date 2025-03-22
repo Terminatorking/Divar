@@ -7,6 +7,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import ghazimoradi.soheil.divar.network.BuildConfig
+import ghazimoradi.soheil.divar.network.constant.BASE_URL
 import ghazimoradi.soheil.divar.network.preferences.TokenPreferences
 import kotlinx.serialization.json.Json
 import okhttp3.Interceptor
@@ -73,14 +74,21 @@ object NetWorkModule {
 
     @Provides
     @Singleton
-    fun provideRetrofit(client: OkHttpClient, json: Json): Retrofit {
+    fun provideRetrofit(client: OkHttpClient, json: Json, baseUrl: String): Retrofit {
         return Retrofit.Builder()
             .client(client)
-            .baseUrl("http://10.0.2.2:8080/api/v1/")
+            .baseUrl(baseUrl)
             .addConverterFactory(
                 json.asConverterFactory(
                     contentType = "application/json".toMediaType()
                 )
             ).build()
     }
+
+    @Provides
+    @Singleton
+    fun provideBaseUrl(): String {
+        return BASE_URL
+    }
+
 }

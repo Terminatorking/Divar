@@ -1,6 +1,5 @@
 package ghazimoradi.soheil.divar.category
 
-import android.util.Log
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -9,6 +8,7 @@ import ghazimoradi.soheil.divar.domain.model.DataResult
 import ghazimoradi.soheil.divar.domain.model.onFailure
 import ghazimoradi.soheil.divar.domain.model.onSuccess
 import ghazimoradi.soheil.divar.domain.usecases.GetCategoriesUseCase
+import ghazimoradi.soheil.divar.ui.extension.eLog
 import ghazimoradi.soheil.divar.ui.viewmodel.BaseViewModel
 import kotlinx.collections.immutable.toImmutableList
 import kotlinx.coroutines.launch
@@ -78,16 +78,19 @@ class CategoryViewModel @Inject constructor(
 
         viewModelScope.launch {
             getCategoriesUseCase.invoke().collect { dataResult: DataResult<List<Category>> ->
-                dataResult.onSuccess {
+                dataResult.onSuccess { categoriesList ->
                     setState {
-                        currentState.copy(isRefreshing = false, categories = it.toImmutableList())
+                        currentState.copy(
+                            isRefreshing = false,
+                            categories = categoriesList.toImmutableList()
+                        )
                     }
                     handleShowingCategory()
                 }.onFailure { apiError ->
                     setState {
                         copy(isRefreshing = false)
                     }
-                    Log.e("serverError", apiError.message)
+                    apiError.eLog(tag = "serverError")
                 }
             }
         }
