@@ -33,6 +33,7 @@ class FeatureConvention : Plugin<Project> {
         dependencies {
             add("implementation", project(":core:utils"))
             add("implementation", project(":core:ui"))
+            add("implementation", project(":domain"))
         }
     }
 }

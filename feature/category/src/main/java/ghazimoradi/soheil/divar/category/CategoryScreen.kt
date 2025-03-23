@@ -79,7 +79,7 @@ fun CategoryScreenContent(
             Column(
                 modifier = Modifier
                     .fillMaxSize()
-                    .background(AppTheme.colors.itemColor)
+                    .background(AppTheme.colors.backgroundColor)
             ) {
                 Row(
                     modifier = Modifier
