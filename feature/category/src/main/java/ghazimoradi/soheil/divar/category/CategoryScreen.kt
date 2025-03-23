@@ -25,7 +25,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import ghazimoradi.soheil.divar.category.component.CategoryItem
 import ghazimoradi.soheil.divar.domain.fake_data.FakeData
-import ghazimoradi.soheil.divar.domain.model.Category
+import ghazimoradi.soheil.divar.domain.model.category.Category
 import ghazimoradi.soheil.divar.ui.R
 import ghazimoradi.soheil.divar.ui.core.list.SwipeList
 import ghazimoradi.soheil.divar.ui.core.texts.TitleMediumText

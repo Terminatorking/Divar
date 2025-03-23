@@ -1,13 +1,13 @@
-package ghazimoradi.soheil.divar.data.repository
+package ghazimoradi.soheil.divar.data.repository.category
 
-import ghazimoradi.soheil.divar.data.mapper.toDomain
+import ghazimoradi.soheil.divar.data.mapper.category.toDomain
 import ghazimoradi.soheil.divar.data.utils.safeCall
-import ghazimoradi.soheil.divar.domain.model.Category
+import ghazimoradi.soheil.divar.domain.model.category.Category
 import ghazimoradi.soheil.divar.domain.model.DataResult
 import ghazimoradi.soheil.divar.domain.model.onFailure
 import ghazimoradi.soheil.divar.domain.model.onSuccess
-import ghazimoradi.soheil.divar.domain.repositories.CategoryRepository
-import ghazimoradi.soheil.divar.network.api.CategoryApiService
+import ghazimoradi.soheil.divar.domain.repositories.category.CategoryRepository
+import ghazimoradi.soheil.divar.network.api.category.CategoryApiService
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject

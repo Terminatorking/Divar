@@ -1,4 +1,4 @@
-package ghazimoradi.soheil.divar.network.dto
+package ghazimoradi.soheil.divar.network.dto.category
 
 import kotlinx.serialization.Serializable
 

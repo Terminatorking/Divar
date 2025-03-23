@@ -14,7 +14,7 @@ import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import ghazimoradi.soheil.divar.domain.fake_data.FakeData
-import ghazimoradi.soheil.divar.domain.model.Category
+import ghazimoradi.soheil.divar.domain.model.category.Category
 import ghazimoradi.soheil.divar.ui.R
 import ghazimoradi.soheil.divar.ui.core.texts.BodyMediumText
 import ghazimoradi.soheil.divar.ui.extension.animateClickable

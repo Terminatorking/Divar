@@ -1,6 +1,6 @@
 package ghazimoradi.soheil.divar.domain.usecases
 
-import ghazimoradi.soheil.divar.domain.repositories.CategoryRepository
+import ghazimoradi.soheil.divar.domain.repositories.category.CategoryRepository
 import javax.inject.Inject
 
 class GetCategoriesUseCase @Inject constructor(

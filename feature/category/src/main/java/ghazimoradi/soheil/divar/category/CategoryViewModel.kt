@@ -3,7 +3,7 @@ package ghazimoradi.soheil.divar.category
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import ghazimoradi.soheil.divar.domain.model.Category
+import ghazimoradi.soheil.divar.domain.model.category.Category
 import ghazimoradi.soheil.divar.domain.model.DataResult
 import ghazimoradi.soheil.divar.domain.model.onFailure
 import ghazimoradi.soheil.divar.domain.model.onSuccess

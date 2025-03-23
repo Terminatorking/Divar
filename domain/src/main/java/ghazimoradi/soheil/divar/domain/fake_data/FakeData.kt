@@ -1,6 +1,6 @@
 package ghazimoradi.soheil.divar.domain.fake_data
 
-import ghazimoradi.soheil.divar.domain.model.Category
+import ghazimoradi.soheil.divar.domain.model.category.Category
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.toImmutableList
 

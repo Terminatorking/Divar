@@ -1,7 +1,7 @@
 package ghazimoradi.soheil.divar.category
 
 import androidx.compose.runtime.Stable
-import ghazimoradi.soheil.divar.domain.model.Category
+import ghazimoradi.soheil.divar.domain.model.category.Category
 import ghazimoradi.soheil.divar.ui.extension.immutableListOf
 import ghazimoradi.soheil.divar.ui.viewmodel.UiEvent
 import ghazimoradi.soheil.divar.ui.viewmodel.UiSate

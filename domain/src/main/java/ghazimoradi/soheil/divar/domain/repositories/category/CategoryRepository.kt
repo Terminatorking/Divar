@@ -1,6 +1,6 @@
-package ghazimoradi.soheil.divar.domain.repositories
+package ghazimoradi.soheil.divar.domain.repositories.category
 
-import ghazimoradi.soheil.divar.domain.model.Category
+import ghazimoradi.soheil.divar.domain.model.category.Category
 import ghazimoradi.soheil.divar.domain.model.DataResult
 import kotlinx.coroutines.flow.Flow
 

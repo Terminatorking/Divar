@@ -1,6 +1,6 @@
-package ghazimoradi.soheil.divar.network.api
+package ghazimoradi.soheil.divar.network.api.category
 
-import ghazimoradi.soheil.divar.network.dto.CategoryResponse
+import ghazimoradi.soheil.divar.network.dto.category.CategoryResponse
 import ghazimoradi.soheil.divar.network.model.SuccessResponse
 import retrofit2.http.GET
 
