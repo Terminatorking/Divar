@@ -4,6 +4,10 @@ interface ApiError {
     val httpStatus: Int
     val message: String
 }
+data class NullRequestBody(
+    override val httpStatus: Int = -1,
+    override val message: String = "خطا در پردازش اطلاعات!"
+) : ApiError
 
 data class NotFoundError(
     override val httpStatus: Int,

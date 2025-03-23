@@ -10,5 +10,6 @@ android {
 
 dependencies {
     implementation(project(":domain"))
+    implementation(project(":core:utils"))
     implementation(project(":core:network"))
 }
