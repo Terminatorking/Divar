@@ -4,11 +4,11 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import ghazimoradi.soheil.divar.domain.model.category.Category
-import ghazimoradi.soheil.divar.domain.model.DataResult
+import ghazimoradi.soheil.divar.domain.model.filter.AdsFilter
 import ghazimoradi.soheil.divar.domain.model.onFailure
 import ghazimoradi.soheil.divar.domain.model.onSuccess
 import ghazimoradi.soheil.divar.domain.usecases.category.GetCategoriesUseCase
-import ghazimoradi.soheil.divar.ui.extension.eLog
+import ghazimoradi.soheil.divar.domain.usecases.filter.SaveFilterFromCategoryUseCase
 import ghazimoradi.soheil.divar.ui.model.UIMessage
 import ghazimoradi.soheil.divar.ui.viewmodel.BaseViewModel
 import kotlinx.collections.immutable.toImmutableList
@@ -19,10 +19,31 @@ import javax.inject.Inject
 class CategoryViewModel @Inject constructor(
     private val savedStateHandle: SavedStateHandle?,
     private val getCategoriesUseCase: GetCategoriesUseCase,
+    private val saveFilterFromCategoryUseCase: SaveFilterFromCategoryUseCase
 ) : BaseViewModel<CategoryUiState, CategoryUiEvent>() {
 
     init {
         getCategories()
+    }
+
+    private fun getCategories() {
+        setState { copy(isRefreshing = true) }
+        viewModelScope.launch {
+            getCategoriesUseCase.invoke().collect {
+                it.onSuccess {
+                    setState {
+                        currentState.copy(
+                            isRefreshing = false,
+                            categories = it.toImmutableList(),
+                        )
+                    }
+                    handleShowingCategory()
+                }.onFailure { apiError ->
+                    setState { copy(isRefreshing = false) }
+                    setUiMessage(UIMessage(stringValue = apiError.message))
+                }
+            }
+        }
     }
 
     override fun createInitialState() = CategoryUiState()
@@ -38,17 +59,16 @@ class CategoryViewModel @Inject constructor(
                     }
                     handleShowingCategory()
                 } else {
-//                    setState {
-//                        copy(selectedCategory = event.category)
-//                    }
-//                    saveFilter(event.category)
+                    setState {
+                        copy(selectedCategory = event.category)
+                    }
+                    saveFilter(event.category)
                 }
             }
 
             CategoryUiEvent.OnBackInCategoryDialog -> {
                 if (currentState.selectedCategories.isNotEmpty()) {
-                    val newList: MutableList<Category> =
-                        currentState.selectedCategories.toMutableList()
+                    val newList = currentState.selectedCategories.toMutableList()
                     newList.removeAt(newList.size - 1)
                     setState {
                         copy(selectedCategories = newList.toImmutableList())
@@ -72,29 +92,9 @@ class CategoryViewModel @Inject constructor(
         }
     }
 
-    private fun getCategories() {
-        setState {
-            copy(isRefreshing = true)
-        }
-
+    private fun saveFilter(category: Category) {
         viewModelScope.launch {
-            getCategoriesUseCase.invoke().collect { dataResult: DataResult<List<Category>> ->
-                dataResult.onSuccess { categoriesList ->
-                    setState {
-                        currentState.copy(
-                            isRefreshing = false,
-                            categories = categoriesList.toImmutableList()
-                        )
-                    }
-                    handleShowingCategory()
-                }.onFailure { apiError ->
-                    setState {
-                        copy(isRefreshing = false)
-                    }
-                    setUiMessage(UIMessage(stringValue = "مشکلی پیش امده اینترنت خود را چک کنید اگر اینترنت متصل بود ایراد سرور است صبور باشید"))
-                    apiError.eLog(tag = "serverError")
-                }
-            }
+            saveFilterFromCategoryUseCase.invoke(AdsFilter(category = category))
         }
     }
 
