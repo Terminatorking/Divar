@@ -4,7 +4,7 @@ import androidx.compose.runtime.Stable
 import ghazimoradi.soheil.divar.domain.model.category.Category
 import ghazimoradi.soheil.divar.ui.extension.immutableListOf
 import ghazimoradi.soheil.divar.ui.viewmodel.UiEvent
-import ghazimoradi.soheil.divar.ui.viewmodel.UiSate
+import ghazimoradi.soheil.divar.ui.viewmodel.UiState
 import kotlinx.collections.immutable.ImmutableList
 
 @Stable
@@ -17,7 +17,7 @@ data class CategoryUiState(
     val showCategories: ImmutableList<Category>? = immutableListOf(),
     val categoryTitle: String? = null,
     val selectedCategory: Category? = null
-) : UiSate
+) : UiState
 
 sealed class CategoryUiEvent : UiEvent {
     data class OnCategorySelected(val category: Category) : CategoryUiEvent()

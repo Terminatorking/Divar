@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
-abstract class BaseViewModel<State : UiSate, Event : UiEvent> : ViewModel() {
+abstract class BaseViewModel<State : UiState, Event : UiEvent> : ViewModel() {
 
     private val initialState: State by lazy {
         createInitialState()
