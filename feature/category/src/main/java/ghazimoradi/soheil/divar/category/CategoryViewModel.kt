@@ -7,7 +7,7 @@ import ghazimoradi.soheil.divar.domain.model.category.Category
 import ghazimoradi.soheil.divar.domain.model.DataResult
 import ghazimoradi.soheil.divar.domain.model.onFailure
 import ghazimoradi.soheil.divar.domain.model.onSuccess
-import ghazimoradi.soheil.divar.domain.usecases.GetCategoriesUseCase
+import ghazimoradi.soheil.divar.domain.usecases.category.GetCategoriesUseCase
 import ghazimoradi.soheil.divar.ui.extension.eLog
 import ghazimoradi.soheil.divar.ui.model.UIMessage
 import ghazimoradi.soheil.divar.ui.viewmodel.BaseViewModel

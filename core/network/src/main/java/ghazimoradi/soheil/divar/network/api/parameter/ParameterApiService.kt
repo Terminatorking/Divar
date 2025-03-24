@@ -7,7 +7,7 @@ import retrofit2.http.Query
 
 interface ParameterApiService {
 
-    @GET("v1/parameter")
+    @GET("parameter")
     suspend fun getParameters(
         @Query("categoryId") categoryId: Long = 0,
     ): SuccessResponse<List<ParameterResponse>>

@@ -7,7 +7,7 @@ import retrofit2.http.Query
 
 interface CategoryOfAdsApiService {
 
-    @GET("v1/ads/categories_of_ads")
+    @GET("ads/categories_of_ads")
     suspend fun getCategoriesOfAds(
         @Query("searchText") searchText: String,
         @Query("cityId") cityId: Long,

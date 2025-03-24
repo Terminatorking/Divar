@@ -33,17 +33,15 @@ class AdsSummaryRepositoryImpl @Inject constructor(
             )
         }.onSuccess { data ->
             val paging = data.toDomain(
-                contentMapper = {
-                    it.map {
-                        adsSummaryResponse -> adsSummaryResponse.toDomain()
+                contentMapper = { adsSummaryResponseList ->
+                    adsSummaryResponseList.map { adsSummaryResponse ->
+                        adsSummaryResponse.toDomain()
                     }.toImmutableList()
                 }
             )
             emit(DataResult.Success(paging))
-        }.onFailure {
-            emit(DataResult.Failure(it))
+        }.onFailure { apiError ->
+            emit(DataResult.Failure(apiError))
         }
     }
-
-
 }

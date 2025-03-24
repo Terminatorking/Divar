@@ -14,6 +14,4 @@ interface AdsSummaryRepository {
         page: Int,
         cityId: Long,
     ): Flow<DataResult<Paging<ImmutableList<AdsSummary>>>>
-
-
 }

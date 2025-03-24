@@ -1,4 +1,4 @@
-package ghazimoradi.soheil.divar.data.di.repository
+package ghazimoradi.soheil.divar.data.di.bindRepositories
 
 import dagger.Binds
 import dagger.Module
@@ -20,7 +20,7 @@ interface BindRepositories {
 
     @Binds
     fun bindAdsSummary(repo: AdsSummaryRepositoryImpl): AdsSummaryRepository
-//
+
 //    @Binds
 //    fun bindLocation(repo: LocationRepositoryImpl): LocationRepository
 //

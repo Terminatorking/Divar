@@ -12,12 +12,12 @@ import retrofit2.http.Query
 
 interface AdsApiService {
 
-    @GET("v1/ads/detail")
+    @GET("ads/detail")
     suspend fun getAdsDetail(
         @Query("id") id: Long
     ): SuccessResponse<AdsResponse>
 
-    @POST("v1/ads")
+    @POST("ads")
     @Multipart
     suspend fun createAds(
         @Part images: List<MultipartBody.Part>,

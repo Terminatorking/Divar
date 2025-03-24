@@ -15,6 +15,4 @@ data class AdsFilter(
     val parameters: List<Parameter>? = null,
     val searchText: String = "",
     val focus: FilterClickType? = null
-) {
-
-}
+)

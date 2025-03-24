@@ -7,10 +7,10 @@ import retrofit2.http.Query
 
 interface LocationApiService {
 
-    @GET("v1/city")
+    @GET("city")
     suspend fun getCities(): SuccessResponse<List<CityResponse>>
 
-    @GET("v1/city")
+    @GET("city")
     suspend fun getCitiesWithNeighborhood(
         @Query("includeNeighborhoods") includeNeighborhoods: Boolean = true
     ): SuccessResponse<List<CityResponse>>

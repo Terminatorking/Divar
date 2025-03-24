@@ -1,4 +1,4 @@
-package ghazimoradi.soheil.divar.domain.usecases
+package ghazimoradi.soheil.divar.domain.usecases.category
 
 import ghazimoradi.soheil.divar.domain.repositories.category.CategoryRepository
 import javax.inject.Inject

@@ -9,7 +9,7 @@ import retrofit2.http.POST
 
 interface AdsSummaryApiService {
 
-    @POST("v1/ads/filter")
+    @POST("ads/filter")
     suspend fun getAdsSummary(
         @Body getAdsRequest: GetAdsRequest
     ): SuccessResponse<PagingResponse<List<AdsSummaryResponse>>>

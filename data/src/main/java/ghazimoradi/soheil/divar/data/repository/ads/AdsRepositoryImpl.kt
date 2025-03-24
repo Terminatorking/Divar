@@ -24,6 +24,7 @@ import javax.inject.Inject
 class AdsRepositoryImpl @Inject constructor(
     private val apiService: AdsApiService
 ) : AdsRepository {
+
     override suspend fun getAdsDetail(id: Long): Flow<DataResult<Ads>> = flow {
         safeCall {
             apiService.getAdsDetail(id)
@@ -64,6 +65,5 @@ class AdsRepositoryImpl @Inject constructor(
         }
 
     }
-
 
 }
