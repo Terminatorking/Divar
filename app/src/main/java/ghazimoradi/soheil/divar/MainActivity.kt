@@ -12,9 +12,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.tooling.preview.Preview
 import dagger.hilt.android.AndroidEntryPoint
-import ghazimoradi.soheil.divar.category.CategoryScreen
+import ghazimoradi.soheil.divar.home.HomeScreen
 import ghazimoradi.soheil.divar.ui.theme.AppTheme
-import ghazimoradi.soheil.divar.ui.theme.*
+import ghazimoradi.soheil.divar.ui.theme.BrightGray
+import ghazimoradi.soheil.divar.ui.theme.RaisinBlack
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -35,11 +36,13 @@ class MainActivity : ComponentActivity() {
             }
 
             AppTheme {
-                CategoryScreen(
-                    onCategory = {
+                HomeScreen(
+                    onSelectedCategory = {
 
                     },
-                )
+                ) {
+
+                }
             }
         }
     }

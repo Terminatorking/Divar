@@ -92,7 +92,7 @@ private fun Preview() {
         {
             HomeToolbar(
                 modifier = Modifier,
-                cityName = "",
+                cityName = "مشهد",
                 onCity = {},
                 onSearch = {}
             )
