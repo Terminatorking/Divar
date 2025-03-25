@@ -42,6 +42,7 @@
             <option value="$PROJECT_DIR$/feature/create-ads" />
             <option value="$PROJECT_DIR$/feature/filter" />
             <option value="$PROJECT_DIR$/feature/home" />
+            <option value="$PROJECT_DIR$/feature/location" />
           </set>
         </option>
       </GradleProjectSettings>
