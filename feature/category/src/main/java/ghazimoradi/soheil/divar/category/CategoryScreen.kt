@@ -4,14 +4,12 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
-import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -33,111 +31,97 @@ import ghazimoradi.soheil.divar.ui.core.ui_message.UiMessageScreen
 import ghazimoradi.soheil.divar.ui.extension.CreateSpace
 import ghazimoradi.soheil.divar.ui.extension.animateClickable
 import ghazimoradi.soheil.divar.ui.extension.baseModifier
-import ghazimoradi.soheil.divar.ui.extension.eLog
 import ghazimoradi.soheil.divar.ui.theme.AppTheme
 import kotlinx.collections.immutable.ImmutableList
 
 @Composable
 fun CategoryScreen(
-    viewModel: CategoryViewModel = hiltViewModel(),
+    vm: CategoryViewModel = hiltViewModel(),
     onCategory: (Category) -> Unit
 ) {
-    val uiState = viewModel.uiState.collectAsState().value
+    val uiState = vm.uiState.collectAsState().value
+
     LaunchedEffect(key1 = uiState.selectedCategory) {
         if (uiState.selectedCategory != null) {
             onCategory(uiState.selectedCategory)
-            viewModel.onTriggerEvent(CategoryUiEvent.OnClearSelectedCategory)
+            vm.onTriggerEvent(CategoryUiEvent.OnClearSelectedCategory)
         }
     }
+
     CategoryScreenContent(
-        categoryTitle = uiState.categoryTitle,
+        modifier = Modifier
+            .baseModifier(0.dp),
         list = uiState.showCategories,
         isRefreshing = uiState.isRefreshing,
         isLoadMore = uiState.isLoadMore,
-        onAction = { categoryUiEvent ->
-            viewModel.onTriggerEvent(categoryUiEvent)
-        }
+        categoryTitle = uiState.categoryTitle,
+        onAction = { vm.onTriggerEvent(it) }
     )
 
-    UiMessageScreen(shared = viewModel.uiMessage)
+    UiMessageScreen(
+        shared = vm.uiMessage
+    )
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CategoryScreenContent(
-    categoryTitle: String? = null,
+    modifier: Modifier = Modifier,
     list: ImmutableList<Category>?,
     isRefreshing: Boolean,
     isLoadMore: Boolean,
-    onAction: OnAction,
+    categoryTitle: String? = null,
+    onAction: OnAction
 ) {
-    AppTheme {
-        Scaffold(
-            modifier = Modifier.baseModifier(padding = 0.dp),
-        ) { innerPadding ->
-            innerPadding.eLog()
-            Column(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .background(AppTheme.colors.backgroundColor)
-            ) {
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .shadow(1.dp)
-                        .background(AppTheme.colors.itemColor)
-                        .padding(16.dp),
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.spacedBy(8.dp, Alignment.End)
-                ) {
-                    TitleMediumText(
-                        text = if (categoryTitle.isNullOrEmpty())
-                            stringResource(R.string.ads_category) else categoryTitle
-                    )
+    Column(modifier = modifier) {
+        Row(
+            Modifier
+                .fillMaxWidth()
+                .shadow(1.dp)
+                .background(color = AppTheme.colors.itemColor)
+                .padding(16.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(8.dp, alignment = Alignment.End)
+        ) {
+            TitleMediumText(
+                text = if (categoryTitle.isNullOrEmpty()) stringResource(id = R.string.ads_category) else categoryTitle
+            )
 
-                    if (categoryTitle.isNullOrEmpty().not()) {
-                        8.CreateSpace()
-                        Icon(
-                            modifier = Modifier
-                                .animateClickable {
-                                    onAction(CategoryUiEvent.OnBackInCategoryDialog)
-                                }
-                                .size(18.dp),
-                            tint = AppTheme.colors.iconColor,
-                            painter = painterResource(R.drawable.ic_arrow_right),
-                            contentDescription = "back"
-                        )
-                    }
-                }
-                SwipeList(
-                    listSize = list?.size,
+            if (!categoryTitle.isNullOrEmpty()) {
+                12.CreateSpace()
+                Icon(
                     modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(16.dp),
-                    isRefreshing = isRefreshing,
-                    isLoadMore = isLoadMore,
-                    onRefresh = {
-                        onAction.invoke(CategoryUiEvent.OnRefresh)
-                    },
-                    onLoadMore = {
-                        onAction.invoke(CategoryUiEvent.OnLoadMore)
-                    },
-                ) { index ->
-                    list?.get(index)?.apply {
-                        CategoryItem(
-                            onClick = {
-                                onAction.invoke(
-                                    CategoryUiEvent.OnCategorySelected(category = this)
-                                )
-                            },
-                            modifier = Modifier.fillMaxWidth(),
-                            category = this,
-                        )
-                        12.CreateSpace()
-                        HorizontalDivider()
-                        12.CreateSpace()
+                        .animateClickable { onAction(CategoryUiEvent.OnBackInCategoryDialog) }
+                        .size(18.dp),
+                    painter = painterResource(id = R.drawable.ic_arrow_right),
+                    contentDescription = "back icon",
+                    tint = AppTheme.colors.iconColor
+                )
+            }
+        }
+        16.CreateSpace()
+
+        SwipeList(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp),
+            isRefreshing = isRefreshing,
+            isLoadMore = isLoadMore,
+            listSize = list?.size,
+            onRefresh = { onAction(CategoryUiEvent.OnRefresh) },
+            onLoadMore = { onAction(CategoryUiEvent.OnLoadMore) }
+        ) { index: Int ->
+            list?.get(index)?.apply {
+                CategoryItem(
+                    modifier = Modifier.fillMaxWidth(),
+                    category = this,
+                    onClick = {
+                        onAction(CategoryUiEvent.OnCategorySelected(this))
                     }
-                }
+                )
+                16.CreateSpace()
+                HorizontalDivider()
+                16.CreateSpace()
             }
         }
     }
@@ -148,6 +132,7 @@ fun CategoryScreenContent(
 private fun Preview() {
     AppTheme {
         CategoryScreenContent(
+            modifier = Modifier.baseModifier(),
             list = FakeData.provideCategories(),
             isRefreshing = false,
             isLoadMore = false,

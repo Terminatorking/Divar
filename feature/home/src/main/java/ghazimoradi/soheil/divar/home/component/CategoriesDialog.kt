@@ -75,7 +75,8 @@ fun CategoriesDialog(
         onDismissRequest = {
             if (isFocused) isFocused = false
             else onAction(HomeUiEvent.OnClearCategory)
-        }) {
+        },
+    ) {
         CategoriesDialogContent(
             modifier = Modifier
                 .navigationBarsPadding()
@@ -133,7 +134,10 @@ private fun CategoriesDialogContent(
             FlowRow(
                 modifier = Modifier.fillMaxWidth(),
                 verticalArrangement = Arrangement.Center,
-                horizontalArrangement = Arrangement.spacedBy(8.dp, alignment = Alignment.CenterHorizontally)
+                horizontalArrangement = Arrangement.spacedBy(
+                    8.dp,
+                    alignment = Alignment.CenterHorizontally
+                )
             ) {
                 selectedCategories.reversed().forEachIndexed { index, category ->
                     BodyMediumText(
@@ -254,8 +258,10 @@ private fun Preview() {
         Box(modifier = Modifier.baseModifier()) {
             CategoriesDialogContent(
                 modifier = Modifier,
-                showCategories = FakeData.provideCategories().first().children.toImmutableList(),
-                selectedCategories = FakeData.provideCategories().first().children.toImmutableList(),
+                showCategories = FakeData.provideCategories()
+                    .first().children.toImmutableList(),
+                selectedCategories = FakeData.provideCategories()
+                    .first().children.toImmutableList(),
                 searchedCategories = null
             ) {
 
