@@ -170,11 +170,3 @@ fun Int.CreateSpace() {
             .height(this.dp),
     )
 }
-
-@Composable
-fun Dp.CreateSpace() {
-    Spacer(
-        modifier = Modifier
-            .height(this),
-    )
-}

@@ -163,8 +163,7 @@ fun HomeScreenContent(
                 ) {
                     categories?.forEachIndexed { index, category ->
                         if (index == categories.size - 1) {
-                            repeat(emptyCategoryCount)
-                            {
+                            repeat(emptyCategoryCount) {
                                 60.CreateSpace()
                             }
                         }

@@ -12,6 +12,7 @@ import ghazimoradi.soheil.divar.domain.usecases.ads.GetAdsSummaryUseCase
 import ghazimoradi.soheil.divar.domain.usecases.category.GetCategoriesUseCase
 import ghazimoradi.soheil.divar.domain.usecases.filter.SaveFilterFromHomeUseCase
 import ghazimoradi.soheil.divar.domain.usecases.location.GetUserCityUseCase
+import ghazimoradi.soheil.divar.ui.extension.eLog
 import ghazimoradi.soheil.divar.ui.extension.immutableListOf
 import ghazimoradi.soheil.divar.ui.model.UIMessage
 import ghazimoradi.soheil.divar.ui.viewmodel.BaseViewModel
@@ -47,6 +48,7 @@ class HomeViewModel @Inject constructor(
                         copy(isLoading = false)
                     }
                     setUiMessage(UIMessage(stringValue = apiError.message))
+                    apiError.eLog(tag = "serverError")
                 }
             }
         }
@@ -182,6 +184,7 @@ class HomeViewModel @Inject constructor(
                         copy(isLoading = false)
                     }
                     setUiMessage(UIMessage(stringValue = apiError.message))
+                    apiError.eLog("serverError")
                 }
             }
         }
@@ -197,7 +200,7 @@ class HomeViewModel @Inject constructor(
         viewModelScope.launch {
             getAdsSummaryUseCase.invoke(
                 adsFilter = AdsFilter(),
-                cityId = currentState.userCity!!.id,
+                cityId = currentState.userCity?.id ?: 0,
                 page = currentState.page
             ).collect {
                 it.onSuccess { paging ->
@@ -222,6 +225,7 @@ class HomeViewModel @Inject constructor(
                         copy(isLoading = false, isLoadMore = false)
                     }
                     setUiMessage(UIMessage(stringValue = apiError.message))
+                    apiError.eLog("serverError")
                 }
             }
         }

@@ -7,7 +7,6 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import ghazimoradi.soheil.divar.network.BuildConfig
-import ghazimoradi.soheil.divar.network.constant.BASE_URL
 import ghazimoradi.soheil.divar.network.preferences.TokenPreferences
 import kotlinx.serialization.json.Json
 import okhttp3.Interceptor
@@ -88,7 +87,7 @@ object NetWorkModule {
     @Provides
     @Singleton
     fun provideBaseUrl(): String {
-        return BASE_URL
+        return BuildConfig.BaseUrl + "api/v1/"
     }
 
 }
