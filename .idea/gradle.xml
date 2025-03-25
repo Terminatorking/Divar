@@ -43,6 +43,7 @@
             <option value="$PROJECT_DIR$/feature/filter" />
             <option value="$PROJECT_DIR$/feature/home" />
             <option value="$PROJECT_DIR$/feature/location" />
+            <option value="$PROJECT_DIR$/feature/main" />
           </set>
         </option>
       </GradleProjectSettings>
