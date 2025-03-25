@@ -4,7 +4,7 @@ plugins {
 
 
 android {
-    namespace = "com.divar.main"
+    namespace = "ghazimoradi.soheil.divar.main"
 }
 
 dependencies {

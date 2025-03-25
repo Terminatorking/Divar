@@ -2,7 +2,7 @@ plugins {
     id("convention.android.feature")
 }
 android {
-    namespace = "com.divar.chat"
+    namespace = "ghazimoradi.soheil.divar.chat"
 }
 
 dependencies {

@@ -3,7 +3,7 @@ plugins {
 }
 
 android {
-    namespace = "com.divar.auth"
+    namespace = "ghazimoradi.soheil.divar.auth"
 }
 
 dependencies {

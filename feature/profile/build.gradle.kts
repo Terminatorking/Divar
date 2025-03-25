@@ -2,7 +2,7 @@ plugins {
     id("convention.android.feature")
 }
 android {
-    namespace = "com.divar.profile"
+    namespace = "ghazimoradi.soheil.divar.profile"
 }
 
 dependencies {

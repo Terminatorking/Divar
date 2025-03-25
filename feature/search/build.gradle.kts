@@ -2,7 +2,7 @@ plugins {
     id("convention.android.feature")
 }
 android {
-    namespace = "com.divar.search"
+    namespace = "ghazimoradi.soheil.divar.search"
 }
 
 dependencies {

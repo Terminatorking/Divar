@@ -2,7 +2,7 @@ plugins {
     id("convention.android.feature")
 }
 android {
-    namespace = "com.divar.splash"
+    namespace = "ghazimoradi.soheil.divar.splash"
 }
 
 dependencies {

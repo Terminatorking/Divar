@@ -2,7 +2,7 @@ plugins {
     id("convention.android.feature")
 }
 android {
-    namespace = "com.divar.location"
+    namespace = "ghazimoradi.soheil.divar.location"
 }
 
 dependencies {
