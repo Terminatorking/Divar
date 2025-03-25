@@ -44,6 +44,7 @@
             <option value="$PROJECT_DIR$/feature/home" />
             <option value="$PROJECT_DIR$/feature/location" />
             <option value="$PROJECT_DIR$/feature/main" />
+            <option value="$PROJECT_DIR$/feature/profile" />
           </set>
         </option>
       </GradleProjectSettings>
