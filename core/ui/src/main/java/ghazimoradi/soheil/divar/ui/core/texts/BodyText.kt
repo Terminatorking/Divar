@@ -55,6 +55,7 @@ fun BodyLargeText(
 
 @Composable
 fun BodyMediumText(
+    maxLines: Int = Int.MAX_VALUE,
     modifier: Modifier = Modifier,
     text: String,
     textStyle: TextStyle = AppTheme.typography.bodyMedium,
@@ -63,6 +64,7 @@ fun BodyMediumText(
     textDirection: TextDirection = TextDirection.Rtl,
 ) {
     Text(
+        maxLines = maxLines,
         modifier = modifier,
         text = text,
         style = textStyle.copy(
