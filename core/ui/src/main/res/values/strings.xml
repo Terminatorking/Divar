@@ -3,9 +3,77 @@
     <string name="ads_category">دسته بندی آگهی ها</string>
     <string name="as_new">در حد نو</string>
     <string name="search_on_all_ads">جستجو در همه آگهی ها</string>
+    <string name="search">جستجو</string>
     <string name="failed_screen_message">خطایی پیش اومده!</string>
     <string name="search_on_categories">جستجو در دسته ها…</string>
     <string name="choose_your_city">شهر خود را انتخاب کنید</string>
     <string name="search_on_cities">جستجو در شهرها</string>
+
+    <string name="ads">آگهی ها</string>
+    <string name="category">دسته بندی</string>
+    <string name="create_ads">ثبت آگهی</string>
+    <string name="chat">چت</string>
+    <string name="my_divar">دیوار من</string>
+    <string name="please_choose_city">شهر شما انتخاب نشده است! لطفا مجددا وارد شوید.</string>
+    <string name="filters">فیلترها</string>
+    <string name="price">قیمت</string>
+    <string name="choose_neighborhood">انتخاب محل</string>
+    <string name="categories">دسته ها</string>
+    <string name="remove_filters">حذف فیلترها</string>
+    <string name="select">انتخاب</string>
+    <string name="neighborhood">محل</string>
+    <string name="price_in_toman">قیمت (تومان)</string>
+
+    <string name="from">از</string>
+    <string name="to">تا</string>
+    <string name="save_filters">اعمال فیلترها</string>
+    <string name="try_again">تلاش مجدد</string>
+    <string name="description">توضیحات</string>
+    <string name="contact_information">اطلاعات تماس</string>
+
+    <string name="register">ثبت نام</string>
+    <string name="login">ورود</string>
+    <string name="login_to_account">ورود به حساب کاربری</string>
+
+    <string name="register_user">ثبت نام کاربر</string>
+    <string name="enter_mobile_number">شماره موبایل خود را وارد کنید</string>
+    <string name="enter_mobile_number_description">برای استفاده از امکانات دیوار، لطفا شماره موبایل خود را وارد کنید.</string>
+    <string name="mobile_number">شماره موبایل</string>
+    <string name="password">رمز عبور</string>
+    <string name="repeat_password">تکرار رمز عبور</string>
+
+    <string name="auth_tip_section1">فراموش نکنید; استفاده شما از خدمات دیوار به معنای پذیرفتن تمام</string>
+    <string name="auth_tip_section2">شرایط و قوانین استفاده</string>
+    <string name="auth_tip_section3">و</string>
+    <string name="auth_tip_section4">سیاست نامه حریم خصوصی</string>
+    <string name="auth_tip_section5">دیوار است</string>
+
+    <string name="enter_mobile">شماره موبایل رو وارد کنید!</string>
+    <string name="enter_password">رمز عبور را وارد کنید</string>
+    <string name="enter_repeat_password">تکرار رمز عبور را وارد کنید!</string>
+    <string name="password_repeat_not_same">پسورد و تکرار آن یکسان نیستند!</string>
+    <string name="insert_ads">ثبت آگهی</string>
+    <string name="next">بعدی</string>
+
+    <string name="add_image_point">افزودن عکس بازدید آگهی شما را تا سه برابر افزایش می دهد.</string>
+    <string name="ads_title_point">در عنوان آگهی به موارد مهم و چشمگیر اشاره کنید.</string>
+
+    <string name="ads_title_hint">عنوان آگهی خود را بنویسید (اجباری)</string>
+    <string name="ads_description_hint">توضیحات مربوط به آگهی را بنویسید (اجباری)</string>
+    <string name="create_ads_guide">راهنمای ثبت آگهی</string>
+    <string name="image_of_ads">عکس آگهی</string>
+    <string name="title_of_ads">عنوان آگهی</string>
+
+    <string name="image">عکس</string>
+    <string name="add_image">افزودن عکس</string>
+    <string name="ads_description_title">توضیحات آگهی</string>
+    <string name="ads_description_point">جزئیات و نکات جالب توجه آگهی خود را کامل و دقیق بنویسید. نوشتن شماره تماس در متن آگهی مجاز نیست. حتما به ساعات پاسخگویی خود اشاره کنید.</string>
+
+    <string name="error_create_ads_select_category">لطفا دسته بندی را انتخاب کنید.</string>
+
+    <string name="error_create_ads_title">عنوان آگهی ها را انتخاب کنید</string>
+    <string name="error_create_ads_description">توضیحاتی برای آگهی بنویسید.</string>
+    <string name="zero">0</string>
+    <string name="ads_created_successful">آگهی شما با موفقیت ارسال شد و پس از تایید نمایش داده خواهد شد.</string>
 
 </resources>
