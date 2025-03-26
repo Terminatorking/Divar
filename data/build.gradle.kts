@@ -12,5 +12,6 @@ dependencies {
     implementation(project(":domain"))
     implementation(project(":core:secure-shared-pref"))
     implementation(project(":core:utils"))
+    implementation(project(":core:ui"))
     implementation(project(":core:network"))
 }

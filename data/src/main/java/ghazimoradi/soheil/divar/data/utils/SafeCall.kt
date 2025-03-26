@@ -1,5 +1,6 @@
 package ghazimoradi.soheil.divar.data.utils
 
+import ghazimoradi.soheil.divar.ui.extension.eLog
 import ghazimoradi.soheil.divar.domain.model.ApiError
 import ghazimoradi.soheil.divar.domain.model.DataResult
 import ghazimoradi.soheil.divar.domain.model.ServerError
@@ -25,6 +26,7 @@ suspend fun <T> safeCall(
             )
         }
     } catch (e: Throwable) {
+        e.message.eLog()
         DataResult.Failure(getApiError(e))
     }
 }

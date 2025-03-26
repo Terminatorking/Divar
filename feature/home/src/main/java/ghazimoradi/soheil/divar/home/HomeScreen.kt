@@ -76,7 +76,7 @@ fun HomeScreen(
         categories = uiState.categories,
         scrollState = scrollState,
         emptyCategoryCount = uiState.emptyCategoryCount,
-        cityName = uiState.userCity?.name ?: "",
+        cityName = uiState.userCity!!.name,
         onCity = onCity,
         onSearch = onSearch,
         onAction = { homeUiEvent ->

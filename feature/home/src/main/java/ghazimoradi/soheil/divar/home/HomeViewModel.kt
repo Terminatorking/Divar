@@ -88,9 +88,7 @@ class HomeViewModel @Inject constructor(
                             selectedCategories =
                                 selectedCategories?.toMutableList()?.apply {
                                     add(event.category)
-                                }
-                                    ?.toImmutableList()
-                                    ?: listOf(event.category).toImmutableList(),
+                                }?.toImmutableList() ?: listOf(event.category).toImmutableList(),
                             showCategories = event.category.children.toImmutableList()
                         )
                     }
@@ -101,8 +99,7 @@ class HomeViewModel @Inject constructor(
                 val tempSelected =
                     currentState.selectedCategories?.toMutableList()?.apply {
                         removeLastOrNull()
-                    }
-                        ?.toImmutableList()
+                    }?.toImmutableList()
                 setState {
                     copy(
                         selectedCategories = tempSelected,

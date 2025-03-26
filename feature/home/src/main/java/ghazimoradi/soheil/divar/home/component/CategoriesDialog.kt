@@ -62,7 +62,10 @@ fun CategoriesDialog(
     searchText: String,
     onAction: OnAction,
 ) {
-    var isFocused by remember { mutableStateOf(false) }
+    var isFocused by remember {
+        mutableStateOf(false)
+    }
+
     val sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = isFocused)
 
     LaunchedEffect(key1 = isFocused) {
@@ -89,7 +92,9 @@ fun CategoriesDialog(
             showCategories = showCategories,
             isFocused = isFocused,
             searchedCategories = searchedCategories,
-            onChangeFocused = { isFocused = it },
+            onChangeFocused = {
+                isFocused = it
+            },
             selectedCategories = selectedCategories,
             searchText = searchText,
             onAction = onAction
@@ -159,7 +164,6 @@ private fun CategoriesDialogContent(
                     }
                 }
             }
-
         }
 
         HorizontalDivider()
@@ -171,7 +175,11 @@ private fun CategoriesDialogContent(
                     onChangeFocused(it.isFocused)
                 },
             value = searchText,
-            onValueChange = { onAction(HomeUiEvent.OnCategorySearchChange(it)) },
+            onValueChange = {
+                onAction(
+                    HomeUiEvent.OnCategorySearchChange(it)
+                )
+            },
             hint = stringResource(id = R.string.search_on_categories),
             icon = Icons.Outlined.Search,
             iconModifier = Modifier.size(24.dp)
@@ -188,7 +196,11 @@ private fun CategoriesDialogContent(
                     CategoryDialogItem(
                         category = showCategories[index],
                         onClick = {
-                            onAction(HomeUiEvent.OnSelectedCategory(category = showCategories[index]))
+                            onAction(
+                                HomeUiEvent.OnSelectedCategory(
+                                    category = showCategories[index]
+                                )
+                            )
                         }
                     )
                 }
@@ -212,15 +224,24 @@ private fun CategoriesDialogContent(
 }
 
 @Composable
-fun CategoryDialogItem(category: Category, onClick: () -> Unit) {
+fun CategoryDialogItem(
+    category: Category,
+    onClick: () -> Unit,
+) {
     Row(
         Modifier
             .fillMaxWidth()
             .animateClickable(onClick)
-            .background(AppTheme.colors.itemColor, shape = AppTheme.shapes.roundSmall)
+            .background(
+                AppTheme.colors.itemColor,
+                shape = AppTheme.shapes.roundSmall,
+            )
             .padding(12.dp),
         verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.spacedBy(8.dp, alignment = Alignment.CenterHorizontally)
+        horizontalArrangement = Arrangement.spacedBy(
+            8.dp,
+            alignment = Alignment.CenterHorizontally,
+        )
     ) {
         if (category.children.isNotEmpty()) {
             Icon(
@@ -239,7 +260,9 @@ fun CategoryDialogItem(category: Category, onClick: () -> Unit) {
             text = category.name
         )
 
-        category.icon.takeIf { it.isNotBlank() }?.let { icon ->
+        category.icon.takeIf {
+            it.isNotBlank()
+        }?.let { icon ->
             AsyncImage(
                 modifier = Modifier.size(20.dp),
                 model = svgCoil(icon),
@@ -264,7 +287,6 @@ private fun Preview() {
                     .first().children.toImmutableList(),
                 searchedCategories = null
             ) {
-
             }
         }
     }

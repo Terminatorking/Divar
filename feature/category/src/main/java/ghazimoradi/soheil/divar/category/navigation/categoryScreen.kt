@@ -6,7 +6,6 @@ import androidx.navigation.compose.composable
 import ghazimoradi.soheil.divar.category.CategoryScreen
 import ghazimoradi.soheil.divar.domain.model.category.Category
 
-
 const val categoryRoute = "category_route"
 fun NavGraphBuilder.categoryScreen(
     onCategory: (Category) -> Unit
