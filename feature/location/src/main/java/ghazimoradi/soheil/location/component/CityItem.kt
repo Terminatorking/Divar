@@ -29,8 +29,6 @@ private fun Preview() {
     AppTheme  {
         CityItem(
             city = FakeData.provideCities().first()
-        ) {
-
-        }
+        ) {}
     }
 }

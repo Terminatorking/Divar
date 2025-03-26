@@ -8,7 +8,6 @@ import ghazimoradi.soheil.divar.domain.model.location.NeighbourHood
 import ghazimoradi.soheil.divar.ui.core.texts.BodyMediumText
 import ghazimoradi.soheil.divar.ui.extension.animateClickable
 
-
 @Composable
 fun NeighborhoodItem(
     neighborhood: NeighbourHood,
