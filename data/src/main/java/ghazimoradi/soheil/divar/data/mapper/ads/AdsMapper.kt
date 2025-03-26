@@ -18,7 +18,7 @@ fun AdsSummaryResponse.toDomain(): AdsSummary {
         id = id,
         title = title,
         price = price,
-        neighborhood = neighbourhoodResponse.toDomain(),
+        neighbourHood = neighbourhoodResponse.toDomain(),
         previewImage = previewImage.toDomain(),
         createAt = createdAt
     )
@@ -30,7 +30,7 @@ fun AdsResponse.toDomain(): Ads {
         title = title,
         description = description,
         price = price,
-        neighborhood = neighborhood.toDomain(),
+        neighbourHood = neighbourhood.toDomain(),
         user = user.toDomain(),
         category = category.toDomain(),
         images = images.map {
@@ -50,7 +50,7 @@ fun CreateAdsParam.toRequest(): CreateAdsRequest {
         title = title,
         description = description,
         price = price,
-        neighborhoodId = 1,
+        neighbourhoodId = 1,
         categoryId = category!!.id,
         answers = parameters.map {
             ParameterAnswerRequest(

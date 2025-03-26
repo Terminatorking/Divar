@@ -14,11 +14,6 @@ data class NotFoundError(
     override val message: String = "اوه! چیزی پیدا نشد."
 ) : ApiError
 
-data class InvalidCredentialsError(
-    override val httpStatus: Int,
-    override val message: String = "نام کاربری یا رمز عبور اشتباهه! یه بار دیگه شانستو امتحان کن."
-) : ApiError
-
 data class ServerError(
     override val httpStatus: Int,
     override val message: String = "اوپس! سرور ترکید!"

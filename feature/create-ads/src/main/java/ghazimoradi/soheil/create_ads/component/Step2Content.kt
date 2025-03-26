@@ -43,9 +43,9 @@ fun Step2Content(
     ) {
         item {
             FilterItem(
-                title = stringResource(id = R.string.neighborhood),
-                value = createAdsParam.neighborhood?.name,
-                onClick = { onAction(CreateAdsUiEvent.OnNeighborhood) }
+                title = stringResource(id = R.string.neighbourhood),
+                value = createAdsParam.neighbourHood?.name,
+                onClick = { onAction(CreateAdsUiEvent.OnNeighbourhood) }
             )
             HorizontalDivider(
                 modifier = Modifier

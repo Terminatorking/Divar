@@ -177,12 +177,12 @@ fun FilterScreenContent(
 
             item {
                 FilterItem(
-                    title = stringResource(id = R.string.neighborhood),
-                    value = adsFilter?.neighborhood?.name,
+                    title = stringResource(id = R.string.neighbourhood),
+                    value = adsFilter?.neighbourHood?.name,
                     onClick = {
                         onAction(
                             FilterUiEvent.OnFilterClickType(
-                                FilterClickType.OnNeighborhood(
+                                FilterClickType.OnNeighbourhood(
                                     false
                                 )
                             )

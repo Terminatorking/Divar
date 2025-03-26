@@ -8,7 +8,7 @@ fun AdsFilter.toRequest(cityId: Long, page: Int): GetAdsRequest {
     val params = parameters?.mapNotNull { it.toAnswerRequest() }
     return GetAdsRequest(
         categoryId = category?.id,
-        neighborhoodId = neighborhood?.id,
+        neighbourhoodId = neighbourHood?.id,
         cityId = cityId,
         price = price,
         parameters = if (params.isNullOrEmpty()) null else params,

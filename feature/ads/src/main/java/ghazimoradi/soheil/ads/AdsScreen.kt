@@ -38,8 +38,8 @@ fun AdsScreen(
 ) {
     val uiState = vm.uiState.collectAsState().value
 
-    LaunchedEffect(key1 = uiState.navigateToNeighborhood) {
-        if (uiState.navigateToNeighborhood) {
+    LaunchedEffect(key1 = uiState.navigateToNeighbourhood) {
+        if (uiState.navigateToNeighbourhood) {
 
         }
     }

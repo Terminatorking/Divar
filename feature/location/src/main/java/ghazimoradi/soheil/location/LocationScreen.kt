@@ -43,7 +43,7 @@ import ghazimoradi.soheil.divar.ui.extension.animateClickable
 import ghazimoradi.soheil.divar.ui.extension.baseModifier
 import ghazimoradi.soheil.divar.ui.theme.AppTheme
 import ghazimoradi.soheil.location.component.CityItem
-import ghazimoradi.soheil.location.component.NeighborhoodItem
+import ghazimoradi.soheil.location.component.NeighbourhoodItem
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.toImmutableList
 
@@ -166,21 +166,21 @@ fun LocationScreenContent(
                     .padding(16.dp),
                 isRefreshing = isRefreshing,
                 isLoadMore = false,
-                listSize = it.neighborhoods?.size,
+                listSize = it.neighbourHoods?.size,
                 onRefresh = { onAction(LocationUiEvent.OnRefresh) },
                 onLoadMore = {}
             ) { index ->
-                it.neighborhoods?.get(index)?.let { neighbourhood ->
-                    NeighborhoodItem(
-                        neighborhood = neighbourhood,
+                it.neighbourHoods?.get(index)?.let { neighbourhood ->
+                    NeighbourhoodItem(
+                        neighbourHood = neighbourhood,
                         onClick = {
                             onAction(
-                                LocationUiEvent.OnNeighborhood(neighbourhood)
+                                LocationUiEvent.OnNeighbourhood(neighbourhood)
                             )
                         }
                     )
                     16.CreateSpace()
-                    if (!it.neighborhoods.isNullOrEmpty() && index != it.neighborhoods!!.size - 1) {
+                    if (!it.neighbourHoods.isNullOrEmpty() && index != it.neighbourHoods!!.size - 1) {
                         HorizontalDivider(
                             modifier = Modifier.fillMaxWidth(),
                             thickness = 0.5.dp

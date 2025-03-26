@@ -156,7 +156,7 @@ object FakeData {
                 id = 71216,
                 title = "تانکر آبرسانی و آبرسانی حمل آب شرب و غیر شرب",
                 price = "1000000",
-                neighborhood = NeighbourHood(id = 73, name = "بلوار کشاورز"),
+                neighbourHood = NeighbourHood(id = 73, name = "بلوار کشاورز"),
                 previewImage = Image("https://www.jowhareh.com/images/Jowhareh/galleries_5/large_2fba8ccf-7408-48a4-a4d3-ce2e252ce39b.webp"),
                 createAt = "2023-12-30T11:37:56Z"
             ),
@@ -164,7 +164,7 @@ object FakeData {
                 id = 63871,
                 title = "Them because site protect job part the.",
                 price = "672645",
-                neighborhood = NeighbourHood(id = 53, name = "مرند قدیم"),
+                neighbourHood = NeighbourHood(id = 53, name = "مرند قدیم"),
                 previewImage = null,
                 createAt = "2023-08-25T10:27:52Z"
             ),
@@ -172,7 +172,7 @@ object FakeData {
                 id = 62160,
                 title = "Theory what music.",
                 price = "980461",
-                neighborhood = NeighbourHood(id = 23, name = "قمصر"),
+                neighbourHood = NeighbourHood(id = 23, name = "قمصر"),
                 previewImage = null,
                 createAt = "2024-05-16T15:38:38Z"
             ),
@@ -180,7 +180,7 @@ object FakeData {
                 id = 55986,
                 title = "Response shoulder think across.",
                 price = "761244",
-                neighborhood = NeighbourHood(id = 88, name = "محمدان"),
+                neighbourHood = NeighbourHood(id = 88, name = "محمدان"),
                 previewImage = null,
                 createAt = "2024-05-26T04:26:29Z"
             ),
@@ -188,7 +188,7 @@ object FakeData {
                 id = 53323,
                 title = "Size draw animal hit short.",
                 price = "58611",
-                neighborhood = NeighbourHood(id = 15, name = "ولیعصر"),
+                neighbourHood = NeighbourHood(id = 15, name = "ولیعصر"),
                 previewImage = null,
                 createAt = "2024-07-22T18:16:26Z"
             )
@@ -201,7 +201,7 @@ object FakeData {
             title = "option",
             description = "errem",
             price = "detraxit",
-            neighborhood = NeighbourHood(id = 9534, name = "Jodi Oliver"),
+            neighbourHood = NeighbourHood(id = 9534, name = "Jodi Oliver"),
             user = User(
                 name = "Nicholas Howell",
                 family = "solet",
@@ -226,10 +226,10 @@ object FakeData {
 
     fun provideCities(): List<City> {
         return listOf(
-            City(id = 1, name = "تهران", neighborhoods = listOf()),
-            City(id = 2, name = "مشهد", neighborhoods = listOf()),
-            City(id = 3, name = "رشت", neighborhoods = listOf()),
-            City(id = 4, name = "شیراز", neighborhoods = listOf())
+            City(id = 1, name = "تهران", neighbourHoods = listOf()),
+            City(id = 2, name = "مشهد", neighbourHoods = listOf()),
+            City(id = 3, name = "رشت", neighbourHoods = listOf()),
+            City(id = 4, name = "شیراز", neighbourHoods = listOf())
         )
     }
 }

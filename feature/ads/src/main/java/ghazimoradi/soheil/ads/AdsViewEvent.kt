@@ -22,7 +22,7 @@ data class AdsUiState(
     val userCity: City? = null,
     val adsFilter: AdsFilter? = null,
     val navigateToFilter: FilterClickType? = null,
-    val navigateToNeighborhood: Boolean = false,
+    val navigateToNeighbourhood: Boolean = false,
     val showCategoryDialog: Boolean = false,
     val categories: ImmutableList<Category> = immutableListOf(),
     val fromScreen: FromScreen = FromScreen.Home,

@@ -7,7 +7,7 @@ import ghazimoradi.soheil.divar.domain.model.onSuccess
 import ghazimoradi.soheil.divar.domain.model.parameter.DataType
 import ghazimoradi.soheil.divar.domain.usecases.ads.CreateAdsUseCase
 import ghazimoradi.soheil.divar.domain.usecases.category.GetCategoriesUseCase
-import ghazimoradi.soheil.divar.domain.usecases.location.GetNeighborhoodUseCase
+import ghazimoradi.soheil.divar.domain.usecases.location.GetNeighbourhoodUseCase
 import ghazimoradi.soheil.divar.domain.usecases.parameter.GetParametersUseCase
 import ghazimoradi.soheil.divar.ui.model.UIMessage
 import ghazimoradi.soheil.divar.ui.viewmodel.BaseViewModel
@@ -25,7 +25,7 @@ class CreateAdsViewModel @Inject constructor(
     private val getCategoriesUseCase: GetCategoriesUseCase,
     private val getParametersUseCase: GetParametersUseCase,
     private val createAdsUseCase: CreateAdsUseCase,
-    private val getNeighborhoodUseCase: GetNeighborhoodUseCase
+    private val getNeighbourhoodUseCase: GetNeighbourhoodUseCase
 ) : BaseViewModel<CreateAdsUiState, CreateAdsUiEvent>() {
     init {
         getCategories()
@@ -130,11 +130,11 @@ class CreateAdsViewModel @Inject constructor(
                 setState { copy(createAdsParam = createAdsParam.copy(description = event.text)) }
             }
 
-            is CreateAdsUiEvent.OnNeighborhood -> {
+            is CreateAdsUiEvent.OnNeighbourhood -> {
                 viewModelScope.launch {
-                    setState { copy(toNeighborhood = true) }
+                    setState { copy(toNeighbourhood = true) }
                     delay(2000)
-                    setState { copy(toNeighborhood = false) }
+                    setState { copy(toNeighbourhood = false) }
                 }
             }
 
@@ -186,17 +186,17 @@ class CreateAdsViewModel @Inject constructor(
                 }
             }
 
-            CreateAdsUiEvent.CheckNeighborhood -> {
-                getNeighborhood()
+            CreateAdsUiEvent.CheckNeighbourhood -> {
+                getNeighbourhood()
             }
         }
     }
 
-    private fun getNeighborhood() {
+    private fun getNeighbourhood() {
         viewModelScope.launch {
-            getNeighborhoodUseCase.invoke().collect {
+            getNeighbourhoodUseCase.invoke().collect {
                 it.onSuccess {
-                    setState { copy(createAdsParam = createAdsParam.copy(neighborhood = it)) }
+                    setState { copy(createAdsParam = createAdsParam.copy(neighbourHood = it)) }
                 }.onFailure { _ ->
                 }
             }

@@ -141,10 +141,10 @@ internal fun AdsToolbar(
             }
             item {
                 AdsFilterItem(
-                    title = adsFilter?.neighborhood?.name ?: stringResource(id = R.string.choose_neighborhood),
-                    isVisibleClose = adsFilter?.neighborhood?.name != null,
-                    onClose = { onAction(AdsUiEvent.OnFilterClickType(FilterClickType.OnNeighborhood(true))) },
-                    onClick = { onAction(AdsUiEvent.OnFilterClickType(FilterClickType.OnNeighborhood(false))) }
+                    title = adsFilter?.neighbourHood?.name ?: stringResource(id = R.string.choose_neighbourhood),
+                    isVisibleClose = adsFilter?.neighbourHood?.name != null,
+                    onClose = { onAction(AdsUiEvent.OnFilterClickType(FilterClickType.OnNeighbourhood(true))) },
+                    onClick = { onAction(AdsUiEvent.OnFilterClickType(FilterClickType.OnNeighbourhood(false))) }
 
                 )
             }

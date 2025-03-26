@@ -49,12 +49,12 @@ fun CreateAdsScreen(
     LaunchedEffect(key1 = uiState.adsCreated) {
         if (uiState.adsCreated) onBack()
     }
-    LaunchedEffect(key1 = uiState.toNeighborhood) {
-        if (uiState.toNeighborhood) onLocation()
+    LaunchedEffect(key1 = uiState.toNeighbourhood) {
+        if (uiState.toNeighbourhood) onLocation()
     }
 
     OnResume {
-        vm.onTriggerEvent(CreateAdsUiEvent.CheckNeighborhood)
+        vm.onTriggerEvent(CreateAdsUiEvent.CheckNeighbourhood)
     }
 
     val context = LocalContext.current

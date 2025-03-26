@@ -5,7 +5,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class GetAdsRequest(
     val categoryId: Long?,
-    val neighborhoodId: Long?,
+    val neighbourhoodId: Long?,
     val cityId: Long,
     val price: String?,
     val parameters: List<ParameterAnswerRequest>?,

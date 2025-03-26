@@ -7,9 +7,9 @@ import kotlinx.coroutines.flow.Flow
 
 interface LocationRepository {
     suspend fun getCities(): Flow<DataResult<List<City>>>
-    suspend fun getCitiesWidthNeighborhoods(): Flow<DataResult<List<City>>>
+    suspend fun getCitiesWidthNeighbourhoods(): Flow<DataResult<List<City>>>
     suspend fun saveCity(city: City)
-    suspend fun saveNeighborhood(neighborhood: NeighbourHood)
+    suspend fun saveNeighbourhood(neighbourhood: NeighbourHood)
     suspend fun getUserCity(): Flow<DataResult<City>>
-    suspend fun getUserNeighborhood(): Flow<DataResult<NeighbourHood>>
+    suspend fun getUserNeighbourhood(): Flow<DataResult<NeighbourHood>>
 }

@@ -17,11 +17,11 @@
     <string name="please_choose_city">شهر شما انتخاب نشده است! لطفا مجددا وارد شوید.</string>
     <string name="filters">فیلترها</string>
     <string name="price">قیمت</string>
-    <string name="choose_neighborhood">انتخاب محل</string>
+    <string name="choose_neighbourhood">انتخاب محل</string>
     <string name="categories">دسته ها</string>
     <string name="remove_filters">حذف فیلترها</string>
     <string name="select">انتخاب</string>
-    <string name="neighborhood">محل</string>
+    <string name="neighbourhood">محل</string>
     <string name="price_in_toman">قیمت (تومان)</string>
 
     <string name="from">از</string>

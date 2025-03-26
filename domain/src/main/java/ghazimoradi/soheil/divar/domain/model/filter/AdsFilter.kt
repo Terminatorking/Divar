@@ -10,7 +10,7 @@ import kotlinx.serialization.Serializable
 @Immutable
 data class AdsFilter(
     val category: Category? = null,
-    val neighborhood: NeighbourHood? = null,
+    val neighbourHood: NeighbourHood? = null,
     val price: String? = null,
     val parameters: List<Parameter>? = null,
     val searchText: String = "",

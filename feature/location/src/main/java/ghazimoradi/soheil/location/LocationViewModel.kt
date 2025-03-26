@@ -9,7 +9,7 @@ import ghazimoradi.soheil.divar.domain.model.onSuccess
 import ghazimoradi.soheil.divar.domain.model.onFailure
 import ghazimoradi.soheil.divar.domain.usecases.location.GetCitiesUseCase
 import ghazimoradi.soheil.divar.domain.usecases.location.SaveCityUseCase
-import ghazimoradi.soheil.divar.domain.usecases.location.SaveNeighborhoodUseCase
+import ghazimoradi.soheil.divar.domain.usecases.location.SaveNeighbourhoodUseCase
 import ghazimoradi.soheil.divar.ui.model.UIMessage
 import ghazimoradi.soheil.divar.ui.viewmodel.BaseViewModel
 import kotlinx.collections.immutable.toImmutableList
@@ -21,7 +21,7 @@ class LocationViewModel @Inject constructor(
     private val savedStateHandle: SavedStateHandle?,
     private val getCitiesUseCase: GetCitiesUseCase,
     private val saveCityUseCase: SaveCityUseCase,
-    private val saveNeighborhoodUseCase: SaveNeighborhoodUseCase
+    private val saveNeighbourhoodUseCase: SaveNeighbourhoodUseCase
 ) : BaseViewModel<LocationUiState, LocationUiEvent>() {
 
     private var originalCities: MutableList<City> = mutableListOf()
@@ -30,7 +30,7 @@ class LocationViewModel @Inject constructor(
         getLocationScreenType()
         when (currentState.locationScreenType) {
             LocationScreenType.FromLogin -> getCities()
-            LocationScreenType.FromCreateAds -> getCitiesWithNeighborhood()
+            LocationScreenType.FromCreateAds -> getCitiesWithNeighbourhood()
         }
     }
 
@@ -63,7 +63,7 @@ class LocationViewModel @Inject constructor(
         }
     }
 
-    private fun getCitiesWithNeighborhood() {
+    private fun getCitiesWithNeighbourhood() {
         viewModelScope.launch {
             setState { copy(isLoading = true) }
             getCitiesUseCase.invoke(true).collect {
@@ -115,16 +115,16 @@ class LocationViewModel @Inject constructor(
 
             }
 
-            is LocationUiEvent.OnNeighborhood -> {
-                setState { copy(selectedNeighborhood = event.neighborhood) }
-                saveNeighborhood()
+            is LocationUiEvent.OnNeighbourhood -> {
+                setState { copy(selectedNeighbourhood = event.neighbourHood) }
+                saveNeighbourhood()
             }
         }
     }
 
-    private fun saveNeighborhood() {
+    private fun saveNeighbourhood() {
         viewModelScope.launch {
-            saveNeighborhoodUseCase.invoke(currentState.selectedNeighborhood!!)
+            saveNeighbourhoodUseCase.invoke(currentState.selectedNeighbourhood!!)
         }
         setState { copy(onBack = true) }
     }

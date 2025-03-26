@@ -13,7 +13,7 @@ data class AdsResponse(
     val title: String,
     val description: String,
     val price: String,
-    val neighborhood: NeighbourhoodResponse,
+    val neighbourhood: NeighbourhoodResponse,
     val user: UserResponse,
     val category: CategoryResponse,
     val images: List<ImageResponse>,

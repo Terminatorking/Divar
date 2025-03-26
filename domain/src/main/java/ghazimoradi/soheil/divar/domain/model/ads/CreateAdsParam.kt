@@ -10,7 +10,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class CreateAdsParam(
     val category: Category? = null,
-    val neighborhood: NeighbourHood? = null,
+    val neighbourHood: NeighbourHood? = null,
     val images: ImmutableList<String> = listOf("", "", "", "", "", "").toImmutableList(),
     val title: String = "",
     val description: String = "",

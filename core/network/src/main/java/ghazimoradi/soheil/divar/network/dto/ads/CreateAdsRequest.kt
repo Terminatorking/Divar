@@ -8,7 +8,7 @@ data class CreateAdsRequest(
     val title: String,
     val description: String,
     val price: String,
-    val neighborhoodId: Long,
+    val neighbourhoodId: Long,
     val categoryId: Long,
     val answers: List<ParameterAnswerRequest>
 )

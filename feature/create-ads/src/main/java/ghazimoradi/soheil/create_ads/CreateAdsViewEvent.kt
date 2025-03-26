@@ -20,7 +20,7 @@ data class CreateAdsUiState(
 
     val createAdsParam: CreateAdsParam = CreateAdsParam(),
 
-    val toNeighborhood : Boolean = false,
+    val toNeighbourhood : Boolean = false,
 
     val imageIndexChooser: Int? = null,
     val parameters: ImmutableList<Parameter> = immutableListOf(),
@@ -39,8 +39,8 @@ sealed class CreateAdsUiEvent : UiEvent {
     data class OmImagePicked(val pathList: List<String>) : CreateAdsUiEvent()
     data class OnTitleChanged(val text: String) : CreateAdsUiEvent()
     data class OnDescriptionChanged(val text: String) : CreateAdsUiEvent()
-    data object OnNeighborhood : CreateAdsUiEvent()
-    data object CheckNeighborhood : CreateAdsUiEvent()
+    data object OnNeighbourhood : CreateAdsUiEvent()
+    data object CheckNeighbourhood : CreateAdsUiEvent()
     data class OnPriceChanged(val text: String) : CreateAdsUiEvent()
     data class OnParameter(val parameter: Parameter) : CreateAdsUiEvent()
     data class OnAnswerToParameter(val parameter: Parameter) : CreateAdsUiEvent()

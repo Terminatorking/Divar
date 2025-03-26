@@ -16,7 +16,7 @@ data class LocationUiState(
     val selectedCity: City? = null,
     val cityIsSelected: Boolean = false,
     val locationScreenType: LocationScreenType = LocationScreenType.FromLogin,
-    val selectedNeighborhood: NeighbourHood? = null,
+    val selectedNeighbourhood: NeighbourHood? = null,
     val onBack: Boolean = false,
 ) : UiState
 
@@ -24,7 +24,7 @@ sealed class LocationUiEvent : UiEvent {
     data object OnRefresh : LocationUiEvent()
     data class OnSearch(val text: String) : LocationUiEvent()
     data class OnCity(val city: City) : LocationUiEvent()
-    data class OnNeighborhood(val neighborhood: NeighbourHood) : LocationUiEvent()
+    data class OnNeighbourhood(val neighbourHood: NeighbourHood) : LocationUiEvent()
 }
 
 typealias OnAction = (LocationUiEvent) -> Unit

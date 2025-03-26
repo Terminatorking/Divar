@@ -38,8 +38,8 @@ class LocationRepositoryImpl @Inject constructor(
             }
     }
 
-    override suspend fun getCitiesWidthNeighborhoods(): Flow<DataResult<List<City>>> = flow {
-        safeCall { apiService.getCitiesWithNeighborhood() }
+    override suspend fun getCitiesWidthNeighbourhoods(): Flow<DataResult<List<City>>> = flow {
+        safeCall { apiService.getCitiesWithNeighbourhood() }
             .onSuccess { data ->
                 emit(
                     DataResult.Success(
@@ -61,10 +61,10 @@ class LocationRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun saveNeighborhood(neighborhood: NeighbourHood) {
-        neighborhood.toJson()?.let {
+    override suspend fun saveNeighbourhood(neighbourhood: NeighbourHood) {
+        neighbourhood.toJson()?.let {
             sharedPreferences.edit {
-                putString(SharedPrefConstants.USER_NEIGHBORHOOD, it)
+                putString(SharedPrefConstants.USER_NEIGHBOURHOOD, it)
             }
         }
     }
@@ -77,8 +77,8 @@ class LocationRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun getUserNeighborhood(): Flow<DataResult<NeighbourHood>> = flow {
-        sharedPreferences.getString(SharedPrefConstants.USER_NEIGHBORHOOD, null)
+    override suspend fun getUserNeighbourhood(): Flow<DataResult<NeighbourHood>> = flow {
+        sharedPreferences.getString(SharedPrefConstants.USER_NEIGHBOURHOOD, null)
             ?.fromJson<NeighbourHood?>()?.let {
                 emit(DataResult.Success(it))
             } ?: run {

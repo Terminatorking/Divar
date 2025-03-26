@@ -9,13 +9,13 @@ import ghazimoradi.soheil.divar.ui.core.texts.BodyMediumText
 import ghazimoradi.soheil.divar.ui.extension.animateClickable
 
 @Composable
-fun NeighborhoodItem(
-    neighborhood: NeighbourHood,
+fun NeighbourhoodItem(
+    neighbourHood: NeighbourHood,
     onClick: () -> Unit
 ) {
     BodyMediumText(
         modifier = Modifier.fillMaxWidth().animateClickable(onClick),
-        text = neighborhood.name,
+        text = neighbourHood.name,
         textAlign = TextAlign.Start
     )
 }

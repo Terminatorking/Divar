@@ -149,13 +149,13 @@ class AdsViewModel @Inject constructor(
                             }
                         }
 
-                        is FilterClickType.OnNeighborhood -> {
+                        is FilterClickType.OnNeighbourhood -> {
                             if (event.filterClickType.isRemove) {
-                                setState { copy(adsFilter = currentState.adsFilter?.copy(neighborhood = null)) }
+                                setState { copy(adsFilter = currentState.adsFilter?.copy(neighbourHood = null)) }
                             } else {
-                                setState { copy(navigateToNeighborhood = true) }
+                                setState { copy(navigateToNeighbourhood = true) }
                                 delay(1200)
-                                setState { copy(navigateToNeighborhood = false) }
+                                setState { copy(navigateToNeighbourhood = false) }
                             }
                         }
 

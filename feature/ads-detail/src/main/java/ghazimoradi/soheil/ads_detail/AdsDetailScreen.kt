@@ -182,7 +182,7 @@ fun CenterSection(modifier: Modifier, ads: Ads) {
             modifier = Modifier
                 .fillMaxWidth(),
             textAlign = TextAlign.Start,
-            text = "${ads.createAt.relativeTime()} ${ads.neighborhood.name}"
+            text = "${ads.createAt.relativeTime()} ${ads.neighbourHood.name}"
         )
 
         HorizontalDivider(

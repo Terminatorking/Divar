@@ -7,7 +7,7 @@ data class AdsSummary(
     val id: Long,
     val title: String,
     val price: String,
-    val neighborhood: NeighbourHood,
+    val neighbourHood: NeighbourHood,
     val previewImage: Image?,
     val createAt: String? = null,
 )

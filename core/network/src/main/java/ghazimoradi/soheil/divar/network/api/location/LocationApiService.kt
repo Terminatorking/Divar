@@ -11,8 +11,8 @@ interface LocationApiService {
     suspend fun getCities(): SuccessResponse<List<CityResponse>>
 
     @GET("city")
-    suspend fun getCitiesWithNeighborhood(
-        @Query("includeNeighborhoods") includeNeighborhoods: Boolean = true
+    suspend fun getCitiesWithNeighbourhood(
+        @Query("includeNeighborhoods") includeNeighbourhoods: Boolean = true
     ): SuccessResponse<List<CityResponse>>
 
 }

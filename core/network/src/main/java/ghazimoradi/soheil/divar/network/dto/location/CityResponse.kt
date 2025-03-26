@@ -7,5 +7,5 @@ import kotlinx.serialization.Serializable
 data class CityResponse(
     val id: Long,
     val name: String,
-    val neighborhoods: List<NeighbourhoodResponse>? = null
+    val neighbourhoods: List<NeighbourhoodResponse>? = null
 )

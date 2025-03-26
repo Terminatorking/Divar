@@ -116,7 +116,7 @@ class FilterViewModel @Inject constructor(
                             setState { copy(showCategoryDialog = true) }
                         }
 
-                        is FilterClickType.OnNeighborhood -> {
+                        is FilterClickType.OnNeighbourhood -> {
 
                         }
 
