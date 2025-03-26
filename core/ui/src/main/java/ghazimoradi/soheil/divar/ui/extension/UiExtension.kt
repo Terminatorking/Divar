@@ -7,6 +7,7 @@ import androidx.activity.ComponentActivity
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.imePadding
@@ -167,5 +168,12 @@ fun Modifier.dashedBorder(strokeWidth: Dp, color: Color, cornerRadiusDp: Dp) = c
 fun Int.CreateSpace(modifier: Modifier = Modifier) {
     Spacer(
         modifier = Modifier.size(this.dp).then(modifier),
+    )
+}
+
+@Composable
+fun PaddingValues.CreateSpace(modifier: Modifier = Modifier) {
+    Spacer(
+        modifier = Modifier.padding(this).then(modifier),
     )
 }
