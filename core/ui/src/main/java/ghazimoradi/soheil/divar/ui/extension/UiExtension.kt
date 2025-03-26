@@ -9,10 +9,10 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.runtime.Composable
@@ -164,9 +164,8 @@ fun Modifier.dashedBorder(strokeWidth: Dp, color: Color, cornerRadiusDp: Dp) = c
 )
 
 @Composable
-fun Int.CreateSpace() {
+fun Int.CreateSpace(modifier: Modifier = Modifier) {
     Spacer(
-        modifier = Modifier
-            .height(this.dp),
+        modifier = Modifier.size(this.dp).then(modifier),
     )
 }
