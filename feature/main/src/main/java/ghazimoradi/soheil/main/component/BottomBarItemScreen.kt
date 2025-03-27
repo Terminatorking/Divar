@@ -40,12 +40,15 @@ fun BottomBarItemScreen(
                 onClick = {
                     onAction(MainUiEvent.OnChangeTab(index))
                 },
-                label = { LabelSmallText(text = stringResource(id = bottomBarItem.title)) },
+                label = {
+                    LabelSmallText(
+                        text = stringResource(id = bottomBarItem.title)
+                    )
+                },
                 colors = NavigationBarItemDefaults.colors(
                     selectedIconColor = AppTheme.colors.primaryColor,
                     unselectedIconColor = AppTheme.colors.iconColor,
                     indicatorColor = AppTheme.colors.itemColor
-
                 ),
                 icon = {
                     Icon(
@@ -64,7 +67,8 @@ fun BottomBarItemScreen(
 private fun Preview() {
     AppTheme {
         BottomBarItemScreen(
-            bottomBarItems = MainFakeData.provideBottomBars().reversed().toImmutableList(),
+            bottomBarItems = MainFakeData.provideBottomBars()
+                .reversed().toImmutableList(),
             selectedIndex = 0,
             onAction = {}
         )

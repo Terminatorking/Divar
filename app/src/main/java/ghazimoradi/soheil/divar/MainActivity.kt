@@ -26,13 +26,13 @@ class MainActivity : ComponentActivity() {
         setContent {
             if (isSystemInDarkTheme()) {
                 enableEdgeToEdge(
-                    statusBarStyle = SystemBarStyle.dark(RaisinBlack.toArgb()),
-                    navigationBarStyle = SystemBarStyle.dark(RaisinBlack.toArgb())
+                    statusBarStyle = SystemBarStyle.dark(StatusBarDark.toArgb()),
+                    navigationBarStyle = SystemBarStyle.dark(StatusBarDark.toArgb())
                 )
             } else {
                 enableEdgeToEdge(
-                    statusBarStyle = SystemBarStyle.dark(BrightGray.toArgb()),
-                    navigationBarStyle = SystemBarStyle.dark(BrightGray.toArgb())
+                    statusBarStyle = SystemBarStyle.dark(StatusBarLight.toArgb()),
+                    navigationBarStyle = SystemBarStyle.dark(StatusBarLight.toArgb())
                 )
             }
             AppTheme {

@@ -34,11 +34,12 @@ fun AppNavigation() {
     NavHost(
         navController = rootNavController,
         startDestination = splashRoute
-    )
-    {
+    ) {
         splashScreen(
             onMoveToMain = {
-                rootNavController.runWithLifecycleAware { rootNavController.navigateToMain() }
+                rootNavController.runWithLifecycleAware {
+                    rootNavController.navigateToMain()
+                }
             },
             onMoveToLocation = {
                 rootNavController.runWithLifecycleAware {
@@ -104,7 +105,9 @@ fun AppNavigation() {
                 rootNavController.popBackStack()
             },
             onMoveToMain = {
-                rootNavController.runWithLifecycleAware { rootNavController.navigateToMain() }
+                rootNavController.runWithLifecycleAware {
+                    rootNavController.navigateToMain()
+                }
             }
         )
         searchScreen(

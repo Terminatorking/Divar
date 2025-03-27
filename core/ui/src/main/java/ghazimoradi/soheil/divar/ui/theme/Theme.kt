@@ -28,29 +28,29 @@ object AppTheme {
 }
 
 private val DarkColorScheme = AppColor(
-    primaryColor = ButtonBlue,
-    itemColor = DarkCharcoal,
-    iconColor = BrightGray,
-    textColor = White,
-    hintColor = SilverChalice,
-    titleColor = White,
-    backgroundColor = RaisinBlack,
-    errorColor = Razzmatazz,
-    disableColor = SonicSilver,
-    successColor = Apple
+    primaryColor = PrimaryColorDark,
+    itemColor = ItemColorDark,
+    iconColor = IconColorDark,
+    textColor = TextColorDark,
+    hintColor = HintColorDark,
+    titleColor = TitleColorDark,
+    backgroundColor = BackgroundColorDark,
+    errorColor = ErrorColorDark,
+    disableColor = DisableColorDark,
+    successColor = SuccessColorDark
 )
 
 private val LightColorScheme = AppColor(
-    primaryColor = DenimBlue,
-    itemColor = Lotion,
-    iconColor = EerieBlack,
-    textColor = EerieBlack,
-    hintColor = GraniteGray,
-    titleColor = RaisinBlack,
-    backgroundColor = White,
-    errorColor = Razzmatazz,
-    disableColor = SonicSilver,
-    successColor = Apple
+    primaryColor = PrimaryColorLight,
+    itemColor = ItemColorLight,
+    iconColor = IconColorLight,
+    textColor = TextColorLight,
+    hintColor = HintColorLight,
+    titleColor = TitleColorLight,
+    backgroundColor = BackgroundColorLight,
+    errorColor = ErrorColorLight,
+    disableColor = DisableColorLight,
+    successColor = SuccessColorLight
 )
 
 @Composable
@@ -58,7 +58,6 @@ fun AppTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit
 ) {
-
     val colorScheme = when {
         darkTheme -> DarkColorScheme
         else -> LightColorScheme
@@ -72,4 +71,5 @@ fun AppTheme(
     ) {
         content()
     }
+
 }

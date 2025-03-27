@@ -34,7 +34,7 @@ fun MainScreen(
     }
 
     MainScreenContent(
-        Modifier.baseModifier(0.dp),
+        modifier = Modifier.baseModifier(0.dp),
         bottomBarItems = bottomBarItems,
         onAction = { vm.onTriggerEvent(it) },
         selectedIndex = uiState.selectedIndex,
