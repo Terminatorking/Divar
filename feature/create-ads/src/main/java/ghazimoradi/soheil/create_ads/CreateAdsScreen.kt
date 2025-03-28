@@ -163,7 +163,6 @@ fun CreateAdsScreenContent(
     }
 }
 
-
 @Composable
 fun BottomBar(onAction: OnAction, isLoading: Boolean) {
     Box(

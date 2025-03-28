@@ -69,7 +69,8 @@ class CategoryViewModel @Inject constructor(
             CategoryUiEvent.OnBackInCategoryDialog -> {
                 if (currentState.selectedCategories.isNotEmpty()) {
                     val newList = currentState.selectedCategories.toMutableList()
-                    newList.removeAt(newList.size - 1)
+                    val lastIndex = newList.lastIndex
+                    newList.removeAt(lastIndex)
                     setState {
                         copy(selectedCategories = newList.toImmutableList())
                     }

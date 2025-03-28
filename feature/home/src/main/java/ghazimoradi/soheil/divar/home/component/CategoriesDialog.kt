@@ -102,7 +102,6 @@ fun CategoriesDialog(
     }
 }
 
-
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
 private fun CategoriesDialogContent(
@@ -213,9 +212,7 @@ private fun CategoriesDialogContent(
                 items(searchedCategories.size) { index ->
                     CategoryDialogItem(
                         category = searchedCategories[index],
-                        onClick = {
-                            TODO("show ads when click")
-                        }
+                        onClick = {}
                     )
                 }
             }
@@ -272,7 +269,6 @@ fun CategoryDialogItem(
         }
     }
 }
-
 
 @PreviewLightDark
 @Composable

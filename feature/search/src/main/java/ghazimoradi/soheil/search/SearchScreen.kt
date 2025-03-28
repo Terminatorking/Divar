@@ -69,7 +69,7 @@ fun SearchScreenContent(
     modifier: Modifier = Modifier,
     searchText: String = "",
     onAction: OnAction = {},
-    list: ImmutableList<CategoryOfAds> = immutableListOf<CategoryOfAds>(),
+    list: ImmutableList<CategoryOfAds> = immutableListOf(),
     isLoading: Boolean = false,
     onBack: () -> Unit
 ) {

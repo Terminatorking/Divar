@@ -4,11 +4,7 @@ import ghazimoradi.soheil.divar.network.dto.ads.AdsResponse
 import ghazimoradi.soheil.divar.network.model.SuccessResponse
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
-import retrofit2.http.GET
-import retrofit2.http.Multipart
-import retrofit2.http.POST
-import retrofit2.http.Part
-import retrofit2.http.Query
+import retrofit2.http.*
 
 interface AdsApiService {
 
@@ -23,5 +19,4 @@ interface AdsApiService {
         @Part images: List<MultipartBody.Part>,
         @Part("ads") adsRequest: RequestBody
     ): SuccessResponse<AdsResponse>
-
 }

@@ -57,7 +57,6 @@ fun FilterItem(
     value: Boolean = false,
     onClick: () -> Unit
 ) {
-
     Row(
         Modifier
             .fillMaxWidth()
@@ -79,7 +78,6 @@ fun FilterItem(
     value: String,
     onChangeText: (String) -> Unit
 ) {
-
     Column(
         modifier = Modifier
             .fillMaxWidth()
@@ -109,7 +107,10 @@ private fun Preview() {
                 .fillMaxWidth()
                 .background(AppTheme.colors.backgroundColor),
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(16.dp, alignment = Alignment.CenterVertically)
+            verticalArrangement = Arrangement.spacedBy(
+                16.dp,
+                alignment = Alignment.CenterVertically
+            )
         ) {
             FilterItem(title = "مایل به معاوضه", value = true, onClick = {})
             FilterItem(title = "دسته بندی", value = null, onClick = {})

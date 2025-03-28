@@ -4,6 +4,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clipScrollableContainer
 import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
@@ -21,6 +22,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import ghazimoradi.soheil.divar.ui.core.failed_screen.FailedScreen
 import ghazimoradi.soheil.divar.ui.extension.OnBottomReached
 import ghazimoradi.soheil.divar.ui.theme.AppTheme
 
@@ -83,12 +85,12 @@ fun SwipeList(
         }
 
         if (showErrorVector) {
-//                FailedScreen(
-//                    modifier = Modifier
-//                        .fillMaxSize()
-//                        .align(Alignment.Center),
-//                    onRetry = onRefresh
-//                )
+                FailedScreen(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .align(Alignment.Center),
+                    onRefresh = onRefresh
+                )
         }
     }
 

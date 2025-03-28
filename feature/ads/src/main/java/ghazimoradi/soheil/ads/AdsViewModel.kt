@@ -55,7 +55,9 @@ class AdsViewModel @Inject constructor(
                         )
                     }
                 }.onFailure { apiError ->
-                    setUiMessage(UIMessage(stringValue = apiError.message))
+                    setUiMessage(
+                        UIMessage(stringValue = apiError.message)
+                    )
                 }
             }
         }
@@ -66,10 +68,20 @@ class AdsViewModel @Inject constructor(
             viewModelScope.launch {
                 getParameterUseCase.invoke(categoryId).collect {
                     it.onSuccess {
-                        setState { copy(adsFilter = currentState.adsFilter?.copy(parameters = it.toImmutableList())) }
+                        setState {
+                            copy(
+                                adsFilter = currentState.adsFilter?.copy(
+                                    parameters = it.toImmutableList()
+                                )
+                            )
+                        }
                     }.onFailure { apiError ->
-                        setState { copy(isLoading = false) }
-                        setUiMessage(UIMessage(stringValue = apiError.message))
+                        setState {
+                            copy(isLoading = false)
+                        }
+                        setUiMessage(
+                            UIMessage(stringValue = apiError.message)
+                        )
                     }
                 }
             }
@@ -78,7 +90,9 @@ class AdsViewModel @Inject constructor(
 
     private fun getInitData() {
         savedStateHandle?.get<String>("fromScreen")?.let { json ->
-            setState { copy(fromScreen = json.fromJson<FromScreen>()!!) }
+            setState {
+                copy(fromScreen = json.fromJson<FromScreen>()!!)
+            }
             getAdsFilter()
         }
     }
@@ -88,14 +102,18 @@ class AdsViewModel @Inject constructor(
             when (currentState.fromScreen) {
                 FromScreen.Home -> {
                     readFilterFromHomeUseCase.invoke().collect {
-                        setState { copy(adsFilter = it) }
+                        setState {
+                            copy(adsFilter = it)
+                        }
                         if (currentState.userCity != null) getAds()
                     }
                 }
 
                 FromScreen.Category -> {
                     readFilterFromCategoryUseCase.invoke().collect {
-                        setState { copy(adsFilter = it) }
+                        setState {
+                            copy(adsFilter = it)
+                        }
                         if (currentState.userCity != null) getAds()
                     }
                 }
@@ -107,11 +125,17 @@ class AdsViewModel @Inject constructor(
         viewModelScope.launch {
             getUserCityUseCase.invoke().collect {
                 it.onSuccess {
-                    setState { copy(userCity = it) }
+                    setState {
+                        copy(userCity = it)
+                    }
                     if (currentState.adsFilter != null) getAds()
                 }.onFailure { apiError ->
-                    setState { copy(isLoading = false) }
-                    setUiMessage(UIMessage(stringValue = apiError.message))
+                    setState {
+                        copy(isLoading = false)
+                    }
+                    setUiMessage(
+                        UIMessage(stringValue = apiError.message)
+                    )
                 }
             }
         }
@@ -123,13 +147,17 @@ class AdsViewModel @Inject constructor(
         when (event) {
             AdsUiEvent.OnLoadMore -> {
                 if (currentState.ads?.isLast == false) {
-                    setState { copy(page = currentState.page + 1) }
+                    setState {
+                        copy(page = currentState.page + 1)
+                    }
                     getAds()
                 }
             }
 
             AdsUiEvent.OnRefresh -> {
-                setState { copy(page = 0) }
+                setState {
+                    copy(page = 0)
+                }
                 getAds()
             }
 
@@ -137,38 +165,61 @@ class AdsViewModel @Inject constructor(
                 viewModelScope.launch {
                     when (event.filterClickType) {
                         FilterClickType.OnFilter -> {
-                            setState { copy(navigateToFilter = event.filterClickType) }
+                            setState {
+                                copy(navigateToFilter = event.filterClickType)
+                            }
                         }
 
                         is FilterClickType.OnCategory -> {
                             if (event.filterClickType.isRemove) {
-                                setState { copy(adsFilter = currentState.adsFilter?.copy(category = null)) }
+                                setState {
+                                    copy(adsFilter = currentState.adsFilter?.copy(category = null))
+                                }
                                 getAds()
                             } else {
-                                setState { copy(showCategoryDialog = true) }
+                                setState {
+                                    copy(showCategoryDialog = true)
+                                }
                             }
                         }
 
                         is FilterClickType.OnNeighbourhood -> {
                             if (event.filterClickType.isRemove) {
-                                setState { copy(adsFilter = currentState.adsFilter?.copy(neighbourHood = null)) }
+                                setState {
+
+                                    copy(
+                                        adsFilter = currentState.adsFilter?.copy(
+                                            neighbourHood = null
+                                        )
+                                    )
+                                }
                             } else {
-                                setState { copy(navigateToNeighbourhood = true) }
+                                setState {
+                                    copy(navigateToNeighbourhood = true)
+                                }
                                 delay(1200)
-                                setState { copy(navigateToNeighbourhood = false) }
+                                setState {
+                                    copy(navigateToNeighbourhood = false)
+                                }
                             }
                         }
 
                         is FilterClickType.OnParameter -> {
                             if (event.filterClickType.isRemove) {
                                 setState {
-                                    copy(adsFilter = currentState.adsFilter?.copy(parameters = adsFilter?.parameters?.map {
-                                        if (event.filterClickType.parameter.id == it.id)
-                                            it.copy(answer = null)
-                                        else it
-                                    }?.toImmutableList()))
+                                    copy(
+                                        adsFilter = currentState.adsFilter?.copy(
+                                            parameters = adsFilter?.parameters?.map {
+                                                if (event.filterClickType.parameter.id == it.id)
+                                                    it.copy(answer = null)
+                                                else it
+                                            }?.toImmutableList()
+                                        )
+                                    )
                                 }
-                            } else if (event.filterClickType.parameter.dataType == DataType.CheckBoxInput) {
+                            } else if (
+                                event.filterClickType.parameter.dataType == DataType.CheckBoxInput
+                            ) {
                                 setState {
                                     copy(
                                         adsFilter = currentState.adsFilter?.copy(
@@ -182,20 +233,27 @@ class AdsViewModel @Inject constructor(
                                 }
                                 getAds()
                             } else {
-                                setState { copy(navigateToFilter = event.filterClickType) }
+                                setState {
+                                    copy(navigateToFilter = event.filterClickType)
+                                }
                             }
                         }
 
                         is FilterClickType.OnPrice -> {
                             if (event.filterClickType.isRemove) {
-                                setState { copy(adsFilter = currentState.adsFilter?.copy(price = null)) }
+                                setState {
+                                    copy(adsFilter = currentState.adsFilter?.copy(price = null))
+                                }
                             } else {
-                                setState { copy(navigateToFilter = event.filterClickType) }
+                                setState {
+                                    copy(navigateToFilter = event.filterClickType)
+                                }
                             }
                         }
 
                         is FilterClickType.OnCategoryToShowAds -> {
                             setState {
+
                                 copy(
                                     showCategoryDialog = false,
                                     adsFilter = adsFilter?.copy(category = event.filterClickType.category)
@@ -210,19 +268,30 @@ class AdsViewModel @Inject constructor(
             }
 
             AdsUiEvent.OnDismissDialog -> {
-                setState { copy(showCategoryDialog = false) }
+                setState {
+                    copy(showCategoryDialog = false)
+                }
             }
 
             AdsUiEvent.OnNavigated -> {
-                setState { copy(navigateToFilter = null) }
+                setState {
+                    copy(navigateToFilter = null)
+                }
             }
         }
     }
 
     private suspend fun saveFilter() {
         when (currentState.fromScreen) {
-            FromScreen.Home -> saveFilterFromHomeUseCase.invoke(currentState.adsFilter?.copy(focus = currentState.navigateToFilter))
-            FromScreen.Category -> saveFilterFromCategoryUseCase.invoke(currentState.adsFilter?.copy(focus = currentState.navigateToFilter))
+            FromScreen.Home -> saveFilterFromHomeUseCase.invoke(
+                currentState.adsFilter?.copy(focus = currentState.navigateToFilter)
+            )
+
+            FromScreen.Category -> saveFilterFromCategoryUseCase.invoke(
+                currentState.adsFilter?.copy(
+                    focus = currentState.navigateToFilter
+                )
+            )
         }
     }
 
@@ -235,19 +304,28 @@ class AdsViewModel @Inject constructor(
             ).collect {
                 it.onSuccess { paging ->
                     if (paging.isFirst || currentState.ads?.content.isNullOrEmpty()) {
-                        setState { copy(isLoading = false, isLoadMore = false, ads = paging) }
+                        setState {
+                            copy(isLoading = false, isLoadMore = false, ads = paging)
+                        }
                     } else {
                         setState {
                             copy(
                                 isLoading = false,
                                 isLoadMore = false,
-                                ads = ads?.addMore(paging = paging, content = (ads.content + paging.content).toImmutableList())
+                                ads = ads?.addMore(
+                                    paging = paging,
+                                    content = (ads.content + paging.content).toImmutableList()
+                                )
                             )
                         }
                     }
                 }.onFailure { apiError ->
-                    setState { copy(isLoading = false, isLoadMore = false) }
-                    setUiMessage(UIMessage(stringValue = apiError.message))
+                    setState {
+                        copy(isLoading = false, isLoadMore = false)
+                    }
+                    setUiMessage(
+                        UIMessage(stringValue = apiError.message)
+                    )
                 }
             }
         }

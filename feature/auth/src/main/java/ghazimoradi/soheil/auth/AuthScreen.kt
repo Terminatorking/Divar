@@ -11,7 +11,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowForward
+import androidx.compose.material.icons.automirrored.filled.ArrowForward
 import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -24,17 +24,17 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import ghazimoradi.soheil.divar.ui.R
+import ghazimoradi.soheil.divar.ui.core.button.AppButton
+import ghazimoradi.soheil.divar.ui.core.input.AppTextField
+import ghazimoradi.soheil.divar.ui.core.texts.LabelMediumColoredText
+import ghazimoradi.soheil.divar.ui.core.texts.LabelMediumText
 import ghazimoradi.soheil.divar.ui.core.texts.TitleMediumText
 import ghazimoradi.soheil.divar.ui.core.ui_message.UiMessageScreen
 import ghazimoradi.soheil.divar.ui.extension.animateClickable
 import ghazimoradi.soheil.divar.ui.extension.baseModifier
 import ghazimoradi.soheil.divar.ui.theme.AppTheme
 import kotlinx.collections.immutable.toImmutableList
-import ghazimoradi.soheil.divar.ui.R
-import ghazimoradi.soheil.divar.ui.core.button.AppButton
-import ghazimoradi.soheil.divar.ui.core.input.AppTextField
-import ghazimoradi.soheil.divar.ui.core.texts.LabelMediumColoredText
-import ghazimoradi.soheil.divar.ui.core.texts.LabelMediumText
 
 @Composable
 fun AuthScreen(
@@ -124,10 +124,9 @@ fun AuthScreenContent(
             Icon(
                 modifier = Modifier.size(24.dp),
                 tint = AppTheme.colors.iconColor,
-                imageVector = Icons.Default.ArrowForward,
+                imageVector = Icons.AutoMirrored.Filled.ArrowForward,
                 contentDescription = "back"
             )
-
         }
 
         Column(
@@ -222,7 +221,6 @@ fun AuthScreenContent(
         )
     }
 }
-
 
 @PreviewLightDark
 @Composable

@@ -72,12 +72,6 @@ fun Dp.toComposePx(): Float {
     return density * value
 }
 
-@Composable
-fun Int.toComposeDp(): Dp {
-    val density = LocalDensity.current.density
-    return (this / density).dp
-}
-
 fun Modifier.baseModifier(padding: Dp = 16.dp): Modifier = composed {
     this
         .fillMaxSize()

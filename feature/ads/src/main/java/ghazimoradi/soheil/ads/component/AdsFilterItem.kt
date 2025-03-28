@@ -21,10 +21,8 @@ import ghazimoradi.soheil.divar.ui.extension.animateClickable
 import ghazimoradi.soheil.divar.ui.theme.AppTheme
 import ghazimoradi.soheil.divar.ui.R
 
-
 @Composable
 fun AdsFilterItem(
-    modifier: Modifier = Modifier,
     title: String,
     icon: Int? = null,
     isVisibleClose: Boolean = false,
@@ -100,8 +98,6 @@ private fun PreviewSelected() {
             title = "دسته بندی",
             isVisibleClose = true,
             icon = R.drawable.ic_category
-        ) {
-
-        }
+        ) {}
     }
 }

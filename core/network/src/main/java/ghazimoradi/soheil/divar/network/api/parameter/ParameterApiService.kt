@@ -11,5 +11,4 @@ interface ParameterApiService {
     suspend fun getParameters(
         @Query("categoryId") categoryId: Long = 0,
     ): SuccessResponse<List<ParameterResponse>>
-
 }

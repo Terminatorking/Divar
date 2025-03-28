@@ -12,5 +12,4 @@ interface CategoryOfAdsApiService {
         @Query("searchText") searchText: String,
         @Query("cityId") cityId: Long,
     ): SuccessResponse<List<CategoryOfAdsResponse>>
-
 }

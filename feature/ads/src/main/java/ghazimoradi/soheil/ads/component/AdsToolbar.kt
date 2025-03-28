@@ -12,7 +12,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowForward
+import androidx.compose.material.icons.automirrored.filled.ArrowForward
 import androidx.compose.material.icons.outlined.LocationOn
 import androidx.compose.material.icons.outlined.Search
 import androidx.compose.material3.Icon
@@ -28,11 +28,11 @@ import ghazimoradi.soheil.ads.OnAction
 import ghazimoradi.soheil.divar.domain.fake_data.FakeData
 import ghazimoradi.soheil.divar.domain.model.filter.AdsFilter
 import ghazimoradi.soheil.divar.domain.model.filter.FilterClickType
+import ghazimoradi.soheil.divar.ui.R
 import ghazimoradi.soheil.divar.ui.core.texts.BodyMediumText
 import ghazimoradi.soheil.divar.ui.core.texts.LabelSmallText
 import ghazimoradi.soheil.divar.ui.extension.animateClickable
 import ghazimoradi.soheil.divar.ui.theme.AppTheme
-import ghazimoradi.soheil.divar.ui.R
 
 @Composable
 internal fun AdsToolbar(
@@ -57,13 +57,20 @@ internal fun AdsToolbar(
         Row(
             modifier = Modifier,
             verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(8.dp, alignment = Alignment.CenterHorizontally)
+            horizontalArrangement = Arrangement.spacedBy(
+                8.dp,
+                alignment = Alignment.CenterHorizontally
+            )
         ) {
             Row(
                 Modifier
                     .fillMaxWidth()
                     .padding(8.dp)
-                    .border(1.dp, AppTheme.colors.hintColor, shape = AppTheme.shapes.roundExtraSmall)
+                    .border(
+                        1.dp,
+                        AppTheme.colors.hintColor,
+                        shape = AppTheme.shapes.roundExtraSmall
+                    )
                     .padding(4.dp)
                     .weight(1f),
                 verticalAlignment = Alignment.CenterVertically,
@@ -111,7 +118,7 @@ internal fun AdsToolbar(
                 modifier = Modifier
                     .size(24.dp)
                     .animateClickable(onBack),
-                imageVector = Icons.Default.ArrowForward,
+                imageVector = Icons.AutoMirrored.Filled.ArrowForward,
                 contentDescription = "back icon",
                 tint = AppTheme.colors.hintColor
             )
@@ -135,39 +142,99 @@ internal fun AdsToolbar(
                     title = adsFilter?.category?.name ?: stringResource(id = R.string.categories),
                     isVisibleClose = adsFilter?.category?.name != null,
                     icon = R.drawable.ic_category,
-                    onClose = { onAction(AdsUiEvent.OnFilterClickType(FilterClickType.OnCategory(true))) },
-                    onClick = { onAction(AdsUiEvent.OnFilterClickType(FilterClickType.OnCategory(false))) }
+                    onClose = {
+                        onAction(
+                            AdsUiEvent.OnFilterClickType(
+                                FilterClickType.OnCategory(
+                                    true
+                                )
+                            )
+                        )
+                    },
+                    onClick = {
+                        onAction(
+                            AdsUiEvent.OnFilterClickType(
+                                FilterClickType.OnCategory(
+                                    false
+                                )
+                            )
+                        )
+                    }
                 )
             }
             item {
                 AdsFilterItem(
-                    title = adsFilter?.neighbourHood?.name ?: stringResource(id = R.string.choose_neighbourhood),
+                    title = adsFilter?.neighbourHood?.name
+                        ?: stringResource(id = R.string.choose_neighbourhood),
                     isVisibleClose = adsFilter?.neighbourHood?.name != null,
-                    onClose = { onAction(AdsUiEvent.OnFilterClickType(FilterClickType.OnNeighbourhood(true))) },
-                    onClick = { onAction(AdsUiEvent.OnFilterClickType(FilterClickType.OnNeighbourhood(false))) }
+                    onClose = {
+                        onAction(
+                            AdsUiEvent.OnFilterClickType(
+                                FilterClickType.OnNeighbourhood(
+                                    true
+                                )
+                            )
+                        )
+                    },
+                    onClick = {
+                        onAction(
+                            AdsUiEvent.OnFilterClickType(
+                                FilterClickType.OnNeighbourhood(
+                                    false
+                                )
+                            )
+                        )
+                    }
 
                 )
             }
             item {
-
                 AdsFilterItem(
                     title = adsFilter?.price ?: stringResource(id = R.string.price),
                     isVisibleClose = adsFilter?.price != null,
-                    onClose = { onAction(AdsUiEvent.OnFilterClickType(FilterClickType.OnPrice(true))) },
-                    onClick = { onAction(AdsUiEvent.OnFilterClickType(FilterClickType.OnPrice(false))) }
+                    onClose = {
+                        onAction(
+                            AdsUiEvent.OnFilterClickType(
+                                FilterClickType.OnPrice(true)
+                            )
+                        )
+                    },
+                    onClick = {
+                        onAction(
+                            AdsUiEvent.OnFilterClickType(
+                                FilterClickType.OnPrice(false)
+                            )
+                        )
+                    }
                 )
             }
-            adsFilter?.parameters?.takeIf { it.isNotEmpty() }?.let { paramaters ->
-                items(items = paramaters)
-                { paramater ->
+            adsFilter?.parameters?.takeIf {
+                it.isNotEmpty()
+            }?.let { parameters ->
+                items(items = parameters)
+                { parameter ->
                     AdsFilterItem(
-                        title = paramater.answer ?: paramater.name,
-                        isVisibleClose = paramater.answer != null,
+                        title = parameter.answer ?: parameter.name,
+                        isVisibleClose = parameter.answer != null,
                         onClose = {
-                            onAction(AdsUiEvent.OnFilterClickType(FilterClickType.OnParameter(paramater, isRemove = true)))
+                            onAction(
+                                AdsUiEvent.OnFilterClickType(
+                                    FilterClickType.OnParameter(
+                                        parameter,
+                                        isRemove = true
+                                    )
+                                )
+                            )
                         },
                         onClick = {
-                            onAction(AdsUiEvent.OnFilterClickType(FilterClickType.OnParameter(paramater, isRemove = false)))
+                            onAction(
+                                AdsUiEvent.OnFilterClickType(
+                                    FilterClickType.OnParameter(
+                                        parameter,
+                                        isRemove = false
+                                    )
+                                )
+                            )
                         }
                     )
                 }
@@ -175,7 +242,6 @@ internal fun AdsToolbar(
         }
     }
 }
-
 
 @PreviewLightDark
 @Composable
@@ -208,7 +274,9 @@ private fun ToolbarSelectedPreview() {
             onCity = {},
             onSearch = {},
             onBack = {},
-            adsFilter = AdsFilter(category = FakeData.provideCategories().first())
+            adsFilter = AdsFilter(
+                category = FakeData.provideCategories().first()
+            )
         )
     }
 }

@@ -16,7 +16,7 @@ import androidx.compose.foundation.pager.PagerState
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowForward
+import androidx.compose.material.icons.automirrored.filled.ArrowForward
 import androidx.compose.material.icons.filled.BookmarkBorder
 import androidx.compose.material.icons.filled.Fullscreen
 import androidx.compose.material.icons.filled.Print
@@ -25,7 +25,6 @@ import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
@@ -40,6 +39,9 @@ import ghazimoradi.soheil.divar.ui.extension.animateClickable
 import ghazimoradi.soheil.divar.ui.extension.baseModifier
 import ghazimoradi.soheil.divar.ui.theme.AppTheme
 import ghazimoradi.soheil.divar.ui.utils.coilRounded
+import ghazimoradi.soheil.divar.ui.theme.White
+import ghazimoradi.soheil.divar.ui.theme.Black
+import ghazimoradi.soheil.divar.ui.theme.Gray
 
 @Composable
 fun SliderSection(
@@ -73,9 +75,9 @@ fun SliderSection(
                 .size(24.dp)
                 .animateClickable(onBack)
                 .align(alignment = Alignment.TopEnd),
-            imageVector = Icons.Default.ArrowForward,
+            imageVector = Icons.AutoMirrored.Filled.ArrowForward,
             contentDescription = "Click to back",
-            tint = Color.White
+            tint = White
         )
 
         Row(
@@ -94,7 +96,7 @@ fun SliderSection(
                     .size(24.dp),
                 imageVector = Icons.Default.Share,
                 contentDescription = "Share",
-                tint = Color.White
+                tint = White
             )
 
             Icon(
@@ -102,7 +104,7 @@ fun SliderSection(
                     .size(24.dp),
                 imageVector = Icons.Default.Print,
                 contentDescription = "Print",
-                tint = Color.White
+                tint = White
             )
 
             Icon(
@@ -110,17 +112,20 @@ fun SliderSection(
                     .size(24.dp),
                 imageVector = Icons.Default.BookmarkBorder,
                 contentDescription = "Bookmark",
-                tint = Color.White
+                tint = White
             )
         }
-
 
         Row(
             modifier = Modifier
                 .padding(8.dp)
-                .animateClickable { onAction(AdsDetailUiEvent.ShowFullScreenSlider(true)) }
+                .animateClickable {
+                    onAction(
+                        AdsDetailUiEvent.ShowFullScreenSlider(true)
+                    )
+                }
                 .background(
-                    color = Color.Black.copy(alpha = 0.7f),
+                    color = Black.copy(alpha = 0.7f),
                     shape = AppTheme.shapes.roundMedium
                 )
                 .padding(vertical = 0.dp, horizontal = 4.dp)
@@ -135,12 +140,12 @@ fun SliderSection(
                 modifier = Modifier.size(24.dp),
                 imageVector = Icons.Default.Fullscreen,
                 contentDescription = "",
-                tint = Color.White
+                tint = White
             )
             BodyMediumText(
                 modifier = Modifier.padding(top = 4.dp),
                 text = ads.images.size.toString(),
-                color = Color.White
+                color = White
             )
         }
 
@@ -169,14 +174,15 @@ fun HorizontalPagerIndicator(
                 modifier = Modifier
                     .then(
                         if (index == pagerState.currentPage) {
-                            Modifier
-                                .background(color = Color.White, shape = CircleShape)
+                            Modifier.background(
+                                color = White,
+                                shape = CircleShape
+                            )
                         } else {
-                            Modifier
-                                .background(
-                                    color = Color.White.copy(alpha = 0.6f),
-                                    shape = CircleShape
-                                )
+                            Modifier.background(
+                                color = White.copy(alpha = 0.6f),
+                                shape = CircleShape
+                            )
                         }
                     ),
             )
@@ -194,10 +200,14 @@ private fun Preview() {
                 modifier = Modifier
                     .fillMaxWidth()
                     .aspectRatio(1.3f)
-                    .background(Color.Gray, shape = AppTheme.shapes.roundSmall),
+                    .background(
+                        Gray,
+                        shape = AppTheme.shapes.roundSmall,
+                    ),
                 FakeData.provideAds(),
                 onAction = {},
-                onBack = {})
+                onBack = {},
+            )
         }
     }
 }

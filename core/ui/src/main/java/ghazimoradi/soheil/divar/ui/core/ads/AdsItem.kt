@@ -122,7 +122,6 @@ fun AdsItem(
     }
 }
 
-
 @PreviewLightDark
 @Composable
 private fun Preview() {

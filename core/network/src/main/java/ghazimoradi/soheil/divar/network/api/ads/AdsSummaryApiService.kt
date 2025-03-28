@@ -13,5 +13,4 @@ interface AdsSummaryApiService {
     suspend fun getAdsSummary(
         @Body getAdsRequest: GetAdsRequest
     ): SuccessResponse<PagingResponse<List<AdsSummaryResponse>>>
-
 }

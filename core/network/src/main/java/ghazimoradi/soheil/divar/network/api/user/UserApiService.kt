@@ -17,5 +17,4 @@ interface UserApiService {
     suspend fun register(
        @Body userRequest: UserRequest
     ): SuccessResponse<UserResponse>
-
 }

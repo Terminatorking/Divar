@@ -26,15 +26,16 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SearchViewModel @Inject constructor(
+    //savedStateHandle is useful fot get screen parameters
     private val savedStateHandle: SavedStateHandle?,
     private val getCategoriesOfAdsUseCase: GetCategoriesOfAdsUseCase,
     private val getUserCityUseCase: GetUserCityUseCase,
     private val readFilterFromCategoryUseCase: ReadFilterFromCategoryUseCase,
     private val readFilterFromHomeUseCase: ReadFilterFromHomeUseCase,
-
     private val saveFilterFromCategoryUseCase: SaveFilterFromCategoryUseCase,
     private val saveFilterFromHomeUseCase: SaveFilterFromHomeUseCase
 ) : BaseViewModel<SearchUiState, SearchUiEvent>() {
+
     private var searchJob: Job? = null
     private var cityId: Long? = null
 
@@ -70,9 +71,9 @@ class SearchViewModel @Inject constructor(
 
     private fun getUserCity() {
         viewModelScope.launch {
-            getUserCityUseCase.invoke().collect {
-                it.onSuccess {
-                    cityId = it.id
+            getUserCityUseCase.invoke().collect { dataResultCity ->
+                dataResultCity.onSuccess { city ->
+                    cityId = city.id
                 }.onFailure { apiError ->
                     setState { copy(isLoading = false) }
                     setUiMessage(UIMessage(stringValue = apiError.message))
@@ -132,14 +133,15 @@ class SearchViewModel @Inject constructor(
         }
         setState { copy(isLoading = true) }
         viewModelScope.launch {
-            getCategoriesOfAdsUseCase.invoke(currentState.adsFilter?.searchText ?: "", cityId!!).collect {
-                it.onSuccess {
-                    setState { copy(isLoading = false, categoriesOfAds = it.toImmutableList()) }
-                }.onFailure { apiError ->
-                    setState { copy(isLoading = false) }
-                    setUiMessage(UIMessage(stringValue = apiError.message))
+            getCategoriesOfAdsUseCase.invoke(currentState.adsFilter?.searchText ?: "", cityId!!)
+                .collect {
+                    it.onSuccess {
+                        setState { copy(isLoading = false, categoriesOfAds = it.toImmutableList()) }
+                    }.onFailure { apiError ->
+                        setState { copy(isLoading = false) }
+                        setUiMessage(UIMessage(stringValue = apiError.message))
+                    }
                 }
-            }
         }
     }
 }

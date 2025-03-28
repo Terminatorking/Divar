@@ -8,5 +8,4 @@ interface CategoryApiService {
 
     @GET("category")
     suspend fun getCategories(): SuccessResponse<List<CategoryResponse>>
-
 }

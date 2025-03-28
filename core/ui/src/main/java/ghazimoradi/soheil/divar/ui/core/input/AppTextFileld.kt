@@ -6,6 +6,8 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Search
 import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
@@ -40,7 +42,7 @@ private fun TextFieldPrev() {
 @Composable
 private fun TextFieldIconPrev() {
     AppTheme {
-//        AppTextField(value = "Name", onValueChange = {}, hint = "", icon = )
+        AppTextField(value = "Name", onValueChange = {}, hint = "", icon = Icons.Outlined.Search)
     }
 }
 

@@ -78,14 +78,14 @@ fun CategoryDialog(
         if (isFocused) sheetState.expand()
     }
 
-
     ModalBottomSheet(
         sheetState = sheetState,
         containerColor = AppTheme.colors.backgroundColor,
         onDismissRequest = {
             if (isFocused) isFocused = false
             else onDismiss()
-        }) {
+        },
+    ) {
         CategoriesDialogContent(
             modifier = Modifier
                 .navigationBarsPadding()
@@ -108,7 +108,6 @@ fun CategoryDialog(
             }
         )
     }
-
 }
 
 @OptIn(ExperimentalLayoutApi::class)
@@ -173,7 +172,6 @@ private fun CategoriesDialogContent(
                     }
                 }
             }
-
         }
 
         HorizontalDivider()
@@ -248,7 +246,6 @@ private fun CategoryDialogItem(category: Category, onClick: () -> Unit) {
     }
 }
 
-
 private fun findCategoriesByName(
     categories: List<Category>?,
     searchText: String
@@ -263,6 +260,5 @@ private fun findCategoriesByName(
             temp.addAll(findCategoriesByName(category.children, searchText))
         }
     }
-
     return temp.toImmutableList()
 }

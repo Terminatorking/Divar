@@ -19,7 +19,7 @@ import ghazimoradi.soheil.divar.ui.R
 fun FailedScreen(
     modifier: Modifier = Modifier,
     text: String = stringResource(id = R.string.failed_screen_message),
-    onRefresh: () -> Unit
+    onRefresh: () -> Unit = {}
 ) {
     Column(
         modifier = Modifier

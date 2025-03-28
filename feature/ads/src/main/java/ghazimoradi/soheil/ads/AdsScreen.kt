@@ -137,7 +137,6 @@ fun AdsScreenContent(
     }
 }
 
-
 @PreviewLightDark
 @Composable
 private fun Preview() {
