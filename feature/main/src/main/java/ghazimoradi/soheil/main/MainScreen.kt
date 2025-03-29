@@ -22,12 +22,12 @@ fun MainScreen(
     vm: MainViewModel = hiltViewModel(),
     bottomBarItems: ImmutableList<BottomBarItem>,
     mainNavigation: @Composable () -> Unit,
-    onChangeBottomBar: (BottomBarItem, Boolean) -> Unit
+    onChangeBottomBar: (BottomBarItem) -> Unit
 ) {
     val uiState = vm.uiState.collectAsState().value
 
     LaunchedEffect(key1 = uiState.selectedIndex) {
-        onChangeBottomBar(bottomBarItems[uiState.selectedIndex], uiState.isUserLoggedIn)
+        onChangeBottomBar(bottomBarItems[uiState.selectedIndex])
         if (uiState.selectedIndex == 2) {
             vm.onTriggerEvent(MainUiEvent.OnChangeTab(4))
         }

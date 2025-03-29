@@ -13,6 +13,7 @@ data class AuthUiState(
     val password: String = "",
     val repeatPassword: String = "",
     val user: User? = null,
+    val userIsSelectedCity: Boolean? = null,
 ) : UiState
 
 sealed class AuthUiEvent : UiEvent {

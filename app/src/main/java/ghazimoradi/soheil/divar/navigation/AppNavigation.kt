@@ -7,8 +7,8 @@ import androidx.navigation.compose.rememberNavController
 import ghazimoradi.soheil.ads.navigation.navigateToAds
 import ghazimoradi.soheil.ads_detail.navigation.adsDetailScreen
 import ghazimoradi.soheil.ads_detail.navigation.navigateToAdsDetail
-import ghazimoradi.soheil.auth.navigation.authRoute
 import ghazimoradi.soheil.auth.navigation.authScreen
+import ghazimoradi.soheil.auth.navigation.navigateToAuth
 import ghazimoradi.soheil.create_ads.navigation.createAdsRoute
 import ghazimoradi.soheil.create_ads.navigation.createAdsScreen
 import ghazimoradi.soheil.create_ads.navigation.navigateToCreateAds
@@ -36,9 +36,9 @@ fun AppNavigation() {
         startDestination = splashRoute
     ) {
         splashScreen(
-            onMoveToMain = {
+            onMoveToAuth = {
                 rootNavController.runWithLifecycleAware {
-                    rootNavController.navigateToMain()
+                    rootNavController.navigateToAuth()
                 }
             },
             onMoveToLocation = {
@@ -69,15 +69,11 @@ fun AppNavigation() {
                     }
                 )
             },
-            onChangeBottomBar = { it, isLogin ->
+            onChangeBottomBar = {
                 it.route.takeIf { bottomBarItem -> bottomBarItem.isNotEmpty() }?.let { route ->
                     mainNavController.runWithLifecycleAware {
                         if (it.route == createAdsRoute) {
-                            if (isLogin) {
-                                rootNavController.navigateToCreateAds()
-                            } else {
-                                rootNavController.navigate(authRoute)
-                            }
+                            rootNavController.navigateToCreateAds()
                         } else {
                             navigate(route) {
                                 // Pop up to the start destination of the graph to
@@ -140,8 +136,8 @@ fun AppNavigation() {
         )
 
         authScreen(
-            navigateToMain = {
-                rootNavController.navigateToMain()
+            navigateToLocation = {
+                rootNavController.navigateToLocation(LocationScreenType.FromLogin)
             },
         )
 

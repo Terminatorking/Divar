@@ -8,7 +8,6 @@ import ghazimoradi.soheil.divar.ui.viewmodel.UiState
 data class MainUiState(
     val isLoading: Boolean = true,
     val selectedIndex: Int = 4,
-    val isUserLoggedIn: Boolean = false
 ) : UiState
 
 sealed class MainUiEvent : UiEvent {

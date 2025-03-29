@@ -39,13 +39,13 @@ import kotlinx.collections.immutable.toImmutableList
 @Composable
 fun AuthScreen(
     vm: AuthViewModel = hiltViewModel(),
-    navigateToMain: () -> Unit
+    navigateToLocation: () -> Unit
 ) {
     val uiState = vm.uiState.collectAsState().value
 
     LaunchedEffect(key1 = uiState.user) {
         if (uiState.user != null) {
-            navigateToMain()
+            navigateToLocation.invoke()
         }
     }
 
@@ -217,7 +217,9 @@ fun AuthScreenContent(
                 ScreenMode.Login -> R.string.login
                 ScreenMode.Register -> R.string.register
             },
-            onClick = { onAction(AuthUiEvent.OnBtnClick) }
+            onClick = {
+                onAction(AuthUiEvent.OnBtnClick)
+            }
         )
     }
 }

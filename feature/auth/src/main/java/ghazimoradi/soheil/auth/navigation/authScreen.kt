@@ -7,12 +7,12 @@ import ghazimoradi.soheil.auth.AuthScreen
 
 const val authRoute = "auth_route"
 fun NavGraphBuilder.authScreen(
-    navigateToMain : () -> Unit
+    navigateToLocation : () -> Unit,
 ) {
     composable(
         route = authRoute,
     ) {
-        AuthScreen(navigateToMain = navigateToMain)
+        AuthScreen( navigateToLocation = navigateToLocation)
     }
 }
 

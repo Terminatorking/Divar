@@ -8,9 +8,14 @@ import kotlinx.serialization.Serializable
 sealed class FilterClickType {
     @Serializable
     data object OnFilter : FilterClickType()
+    @Serializable
     data class OnCategory(val isRemove: Boolean) : FilterClickType()
+    @Serializable
     data class OnNeighbourhood(val isRemove: Boolean) : FilterClickType()
+    @Serializable
     data class OnPrice(val isRemove: Boolean) : FilterClickType()
+    @Serializable
     data class OnCategoryToShowAds(val category: Category) : FilterClickType()
+    @Serializable
     data class OnParameter(val parameter: Parameter, val isRemove: Boolean) : FilterClickType()
 }

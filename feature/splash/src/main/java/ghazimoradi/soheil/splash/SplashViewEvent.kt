@@ -6,9 +6,7 @@ import ghazimoradi.soheil.divar.ui.viewmodel.UiState
 
 @Stable
 data class SplashUiState(
-    val userIsSelectedCity: Boolean? = null,
+    val userIsLogin: Boolean = false,
 ) : UiState
 
-
-sealed class SplashUiEvent : UiEvent {
-}
+sealed class SplashUiEvent : UiEvent

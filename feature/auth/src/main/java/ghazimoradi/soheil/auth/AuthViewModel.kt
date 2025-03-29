@@ -4,6 +4,7 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import ghazimoradi.soheil.divar.domain.model.onFailure
 import ghazimoradi.soheil.divar.domain.model.onSuccess
+import ghazimoradi.soheil.divar.domain.usecases.location.GetUserCityUseCase
 import ghazimoradi.soheil.divar.domain.usecases.user.LoginUseCase
 import ghazimoradi.soheil.divar.domain.usecases.user.RegisterUseCase
 import ghazimoradi.soheil.divar.ui.viewmodel.BaseViewModel
@@ -15,8 +16,29 @@ import javax.inject.Inject
 @HiltViewModel
 class AuthViewModel @Inject constructor(
     private val loginUseCase: LoginUseCase,
+    private val getUserCityUseCase: GetUserCityUseCase,
     private val registerUseCase: RegisterUseCase
 ) : BaseViewModel<AuthUiState, AuthUiEvent>() {
+    init {
+        isUserSelectedCity()
+    }
+
+    private fun isUserSelectedCity() {
+        viewModelScope.launch {
+            getUserCityUseCase.invoke().collect {
+                it.onSuccess {
+                    setState {
+                        copy(userIsSelectedCity = true)
+                    }
+                }.onFailure { apiError ->
+                    setState {
+                        copy(userIsSelectedCity = false)
+                    }
+                    setUiMessage(UIMessage(stringValue = apiError.message))
+                }
+            }
+        }
+    }
 
     override fun createInitialState() = AuthUiState()
 
@@ -89,9 +111,13 @@ class AuthViewModel @Inject constructor(
     private fun register() {
         setState { copy(isLoading = true) }
         viewModelScope.launch {
-            registerUseCase.invoke(currentState.mobile, currentState.password, currentState.repeatPassword).collect {
+            registerUseCase.invoke(
+                currentState.mobile,
+                currentState.password,
+                currentState.repeatPassword
+            ).collect {
                 it.onSuccess {
-                    setState { copy(user = it , isLoading = false) }
+                    setState { copy(user = it, isLoading = false) }
                 }.onFailure { apiError ->
                     setState { copy(isLoading = false) }
                     setUiMessage(UIMessage(stringValue = apiError.message))
