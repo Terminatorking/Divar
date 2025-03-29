@@ -1,29 +1,26 @@
 [versions]
-agp = "8.9.0"
+agp = "8.9.1"
 androidxCoreSplashscreen = "1.0.1"
 coil-svg = "2.7.0"
 filepicker = "0.2.5"
 kotlin = "2.0.21"
 coreKtx = "1.15.0"
-
 junit = "5.11.4"
-junitVersion = "1.1.5"
-
 espressoCore = "3.6.1"
 lifecycleRuntimeKtx = "2.8.7"
 activityCompose = "1.10.1"
 composeBom = "2025.03.00"
 coil-compose = "2.4.0"
-
 constraintlayout = "1.1.1"
 androidDesugarJdkLibs = "2.1.5"
 kotlinx-collections-immutable = "0.3.5"
 dagger = "2.51.1"
 hilt-navigation-compose = "1.2.0"
 materialIconsExtended = "1.7.8"
+navigationCompose = "2.8.9"
 pluck = "1.0.0-RC2"
 room = "2.6.1"
-kotlinxSerializationJson = "1.6.2"
+kotlinxSerializationJson = "1.6.3"
 retrofitKotlinxSerializationJson = "1.0.0"
 accompanist = "0.34.0"
 material3Version = "1.3.1"
@@ -43,6 +40,7 @@ androidx-core-splashscreen = { module = "androidx.core:core-splashscreen", versi
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 
 androidx-material-icons-extended = { module = "androidx.compose.material:material-icons-extended", version.ref = "materialIconsExtended" }
+androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigationCompose" }
 coil-svg = { module = "io.coil-kt:coil-svg", version.ref = "coil-svg" }
 filepicker = { module = "io.github.chochanaresh:filepicker", version.ref = "filepicker" }
 junit5-api = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "junit" }
@@ -102,7 +100,6 @@ accompanist-swiperefresh = { module = "com.google.accompanist:accompanist-swiper
 junit-jupiter = { group = "org.junit.jupiter", name = "junit-jupiter", version.ref = "junitJupiter" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 jupiter-junit-jupiter = { group = "org.junit.jupiter", name = "junit-jupiter", version.ref = "junitJupiterVersion" }
-
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

@@ -14,18 +14,13 @@ data class CreateAdsUiState(
     val isLoading: Boolean = false,
     val adsCreated: Boolean = false,
     val screenStep: ScreenStep = ScreenStep.Step1,
-
     val showCategoryDialog: Boolean = false,
     val allCategories: ImmutableList<Category> = immutableListOf(),
-
     val createAdsParam: CreateAdsParam = CreateAdsParam(),
-
     val toNeighbourhood : Boolean = false,
-
     val imageIndexChooser: Int? = null,
     val parameters: ImmutableList<Parameter> = immutableListOf(),
     val showParameterDialog: Parameter? = null,
-
     ) : UiState
 
 enum class ScreenStep { Step1, Step2 }

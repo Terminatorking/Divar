@@ -11,19 +11,14 @@ import kotlinx.serialization.json.Json
 import retrofit2.HttpException
 
 suspend fun <T> safeCall(
-    executable: suspend () -> SuccessResponse<T>
+    execute: suspend () -> SuccessResponse<T>
 ): DataResult<T> {
     return try {
-        val response = executable()
+        val response = execute.invoke()
         if (response.status == Status.Success) {
-            DataResult.Success(
-                data = response.data!!,
-                message = response.message
-            )
+            DataResult.Success(response.data!!, response.message)
         } else {
-            DataResult.Failure(
-                apiError = ServerError(httpStatus = 504)
-            )
+            DataResult.Failure(ServerError(504))
         }
     } catch (e: Throwable) {
         e.message.eLog()
@@ -36,8 +31,10 @@ fun getApiError(throwable: Throwable): ApiError {
         is HttpException -> {
             if (throwable.code() == 500) {
                 return ServerError(500, message = throwable.message())
-            }
-            val bodyError = throwable.response()?.errorBody().toString()
+            }else if (throwable.code() == 404)
+                return ServerError(404, message = throwable.message())
+
+            val bodyError = throwable.response()?.errorBody()?.string() ?: ""
             val failureResponse = Json.decodeFromString<FailureResponse>(bodyError)
             return failureResponse.toApiError()
         }

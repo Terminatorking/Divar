@@ -19,7 +19,7 @@ fun AdsSummaryResponse.toDomain(): AdsSummary {
         title = title,
         price = price,
         neighbourHood = neighbourhoodResponse.toDomain(),
-        previewImage = previewImage.toDomain(),
+        previewImage = previewImage?.toDomain(),
         createAt = createdAt
     )
 }
